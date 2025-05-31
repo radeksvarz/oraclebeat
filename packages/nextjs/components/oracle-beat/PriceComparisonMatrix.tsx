@@ -25,7 +25,7 @@ const PriceComparisonMatrix: FC<PriceComparisonMatrixProps> = ({ assetPair, last
           </p>
         </div>
         <button className="mt-4 sm:mt-0 inline-flex items-center gap-2 px-4 py-2.5 bg-primary/10 hover:bg-primary/20 text-primary font-semibold rounded-lg transition-colors">
-          <span className="material-icons text-[20px] leading-none">crisis_alert</span>
+          <span className="material-icons !text-[20px] !leading-none">monitoring</span>
           <span>Deviation Hunter</span>
           <span className="bg-primary text-primary-content text-xs font-bold px-2 py-0.5 rounded-full">
             Earn Merits

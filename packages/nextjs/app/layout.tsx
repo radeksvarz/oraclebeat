@@ -9,6 +9,9 @@ export const metadata = getMetadata({ title: "Scaffold-ETH 2 App", description: 
 const ScaffoldEthApp = ({ children }: { children: React.ReactNode }) => {
   return (
     <html suppressHydrationWarning>
+      <head>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+      </head>
       <body>
         <ThemeProvider enableSystem>
           <ScaffoldEthAppWithProviders>{children}</ScaffoldEthAppWithProviders>
