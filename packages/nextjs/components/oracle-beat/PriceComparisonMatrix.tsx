@@ -24,12 +24,10 @@ const PriceComparisonMatrix: FC<PriceComparisonMatrixProps> = ({ assetPair, last
             {assetPair} - Last updated: {lastUpdated}
           </p>
         </div>
-        <button className="mt-4 sm:mt-0 inline-flex items-center gap-2 px-4 py-2.5 bg-primary/10 hover:bg-primary/20 text-primary font-semibold rounded-lg transition-colors">
-          <span className="material-icons !text-[20px] !leading-none">monitoring</span>
+        <button className="mt-4 sm:mt-0 inline-flex items-center gap-2.5 px-3 py-2 bg-[#EBF3FF] hover:bg-[#E2EDFF] text-[#0C77F2] font-medium rounded-lg transition-colors">
+          <span className="material-icons !text-lg">crisis_alert</span>
           <span>Deviation Hunter</span>
-          <span className="bg-primary text-primary-content text-xs font-bold px-2 py-0.5 rounded-full">
-            Earn Merits
-          </span>
+          <span className="bg-[#0C77F2] text-white text-xs font-bold px-2 py-0.5 rounded-full">Earn Merits</span>
         </button>
       </div>
       <div className="overflow-x-auto @container">
