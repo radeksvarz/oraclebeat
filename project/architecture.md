@@ -1,12 +1,12 @@
 # Architecture for Oracle Beat Application
 
-## 1\. Overview
+## 1. Overview
 
 Oracle Beat is a Web3-native application built on **scaffold-eth2** that provides real-time and historical price data comparisons between existing Web3 oracles and traditional financial data sources. Real-time Web3 oracle data (including Pyth data from Pythnet and directly from on-chain contracts via Blockscout API) will be fetched directly by the frontend. Real-time traditional financial data will be fetched via a dedicated small backend proxy to ensure API key security. Historical data will be served by the main Vercel-hosted backend from a key-value cache. The application also features detailed source comparisons, individual provider insights, and a gamified Merits system integrated via API with Blockscout. The entire application's primary components will be deployed on Vercel.
 
 -----
 
-## 2\. Core Technologies
+## 2. Core Technologies
 
   * **Frontend Framework:** React (part of `scaffold-eth2`)
   * **Main Backend (Historical Data):** Vercel Serverless Functions (e.g., Next.js API Routes)
@@ -24,7 +24,7 @@ Oracle Beat is a Web3-native application built on **scaffold-eth2** that provide
 
 -----
 
-## 3\. Architecture Diagram (Conceptual)
+## 3. Architecture Diagram (Conceptual)
 
 ```mermaid
 graph TD
@@ -56,10 +56,10 @@ graph TD
         MainBE --"Store/Retrieve Processed Data"--> VercelKV
         VercelKV --"Historical Data"--> MainBE
         MainBE --"Historical Data"--> Frontend
-        MainBE ---"Periodic Ingestion Trigger"--> MainBE --"Fetches from Oracles/APIs"--> VercelKV
+        MainBE --"Periodic Ingestion Trigger"--> MainBE --"Fetches from Oracles/APIs"--> VercelKV
     end
 
-    subgraph Merits System (External)
+    subgraph "Merits System (External)"
         User --"Confirm Deviation / Add Insight"--> Frontend
         Frontend --"API Call"--> BlockscoutMerits
         BlockscoutMerits --"Aggregated Merits Data"--> Frontend
@@ -68,7 +68,7 @@ graph TD
 
 -----
 
-## 4\. Component Breakdown and Integrations
+## 4. Component Breakdown and Integrations
 
 ### 4.1 Frontend (`scaffold-eth2` / Next.js / React)
 
@@ -139,7 +139,7 @@ This is a **new, dedicated small backend** solely for securing and proxying requ
 
 -----
 
-## 5\. Data Flow and Life Cycle
+## 5. Data Flow and Life Cycle
 
 1.  **User Onboarding:** User connects their Web3 wallet via WalletConnect.
 2.  **Asset Pair & Source Selection:** The frontend retrieves available sources and asset pairs metadata from the **Main Backend**.
