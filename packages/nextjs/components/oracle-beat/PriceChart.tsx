@@ -16,16 +16,14 @@ const PriceChart: FC<PriceChartProps> = ({ assetPair, currentPrice, change24h })
     <div className="bg-base-100 shadow-lg rounded-lg p-6 mb-8">
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-4">
         <div>
-          <h3 className="text-gray-800 text-xl font-semibold leading-normal">{assetPair} Historical Price</h3>
-          <p className="text-gray-500 text-sm">Interactive chart displaying price trends over time.</p>
+          <h3 className="text-xl font-semibold text-base-content">{assetPair} Historical Price</h3>
+          <p className="text-base-content/70 text-sm">Interactive chart displaying price trends over time.</p>
         </div>
         <div className="mt-3 md:mt-0">
-          <p className="text-gray-800 text-4xl font-bold tracking-tight">${currentPrice.toFixed(2)}</p>
+          <p className="text-4xl font-bold tracking-tight text-base-content">${currentPrice.toFixed(2)}</p>
           <div className="flex items-center gap-1 text-sm">
-            <p className="text-gray-500">24h Change:</p>
-            <p
-              className={`font-medium flex items-center ${change24h.percentage > 0 ? "text-green-600" : "text-red-600"}`}
-            >
+            <p className="text-base-content/70">24h Change:</p>
+            <p className={`font-medium flex items-center ${change24h.percentage > 0 ? "text-success" : "text-error"}`}>
               <span className="material-icons text-base mr-0.5">
                 {change24h.percentage > 0 ? "arrow_upward" : "arrow_downward"}
               </span>
@@ -35,18 +33,18 @@ const PriceChart: FC<PriceChartProps> = ({ assetPair, currentPrice, change24h })
           </div>
         </div>
       </div>
-      <div className="relative h-96 bg-gray-50 rounded-md p-4 border border-secondary">
-        <div className="flex items-center justify-center h-full text-gray-400">
+      <div className="relative h-96 bg-base-200 rounded-lg p-4 border border-base-300">
+        <div className="flex items-center justify-center h-full text-base-content/50">
           <span className="material-icons text-5xl mr-2">insights</span>
           <p>Interactive Historical Price Graph Area</p>
         </div>
         <div className="absolute bottom-4 left-1/2 -translate-x-1/2 w-auto">
-          <div className="flex items-center gap-2 bg-blue-600/10 border border-blue-600/30 p-3 rounded-lg shadow-md animate-pulse">
-            <span className="material-icons text-blue-600 text-xl">lightbulb</span>
-            <p className="text-blue-600 text-sm font-medium">
+          <div className="flex items-center gap-2 bg-primary/10 border border-primary/30 p-3 rounded-lg shadow-md animate-pulse">
+            <span className="material-icons text-primary text-xl">lightbulb</span>
+            <p className="text-primary text-sm font-medium">
               Found a deviation? Select point/range & contribute insight to earn Merits!
             </p>
-            <button className="ml-2 text-blue-600 hover:text-blue-500">
+            <button className="ml-2 text-primary hover:text-primary/80 transition-colors">
               <span className="material-icons text-xl">close</span>
             </button>
           </div>
@@ -58,14 +56,14 @@ const PriceChart: FC<PriceChartProps> = ({ assetPair, currentPrice, change24h })
             key={range}
             className={`px-3 py-1.5 text-xs font-medium rounded-md transition-colors ${
               range === "1D"
-                ? "text-white bg-blue-600 border border-blue-600"
-                : "text-blue-600 border border-blue-600 hover:bg-blue-600/10"
+                ? "bg-primary text-primary-content"
+                : "text-primary border border-primary hover:bg-primary/10"
             }`}
           >
             {range}
           </button>
         ))}
-        <button className="px-3 py-1.5 text-xs font-medium text-blue-600 border border-blue-600 rounded-md hover:bg-blue-600/10">
+        <button className="px-3 py-1.5 text-xs font-medium text-primary border border-primary rounded-md hover:bg-primary/10 transition-colors">
           <span className="material-icons text-sm">date_range</span>
         </button>
       </div>

@@ -58,21 +58,22 @@ export default function DeviationPage() {
   ];
 
   return (
-    <main className="flex flex-1 justify-center py-8 px-4 sm:px-6 lg:px-8 bg-neutral">
-      <div className="layout-content-container flex flex-col w-full max-w-6xl">
-        <div className="mb-8 p-4">
-          <h2 className="text-gray-800 text-3xl font-bold leading-tight">Deviation Analysis</h2>
-          <p className="text-gray-500 text-base font-normal leading-normal mt-1">
+    <main className="flex flex-1 justify-center py-8 px-4 sm:px-6 lg:px-8 bg-base-200">
+      <div className="layout-content-container flex flex-col w-full max-w-7xl">
+        <div className="mb-8 p-4 bg-base-100 rounded-lg shadow-sm">
+          <h2 className="text-3xl font-bold text-base-content">Deviation Analysis</h2>
+          <p className="text-base-content/70 mt-1">
             Compare real-time prices from multiple sources and analyze deviations.
           </p>
         </div>
+
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 px-4 mb-8">
-          <div className="flex flex-col gap-1">
-            <label className="text-sm font-medium text-gray-700 mb-1" htmlFor="assetPair">
+          <div className="flex flex-col gap-2">
+            <label className="text-sm font-semibold text-base-content/80" htmlFor="assetPair">
               Asset Pair
             </label>
             <select
-              className="form-select w-full rounded-lg text-gray-800 border-gray-300 focus:border-blue-600 focus:ring-blue-600 h-12 placeholder:text-gray-400 px-3 text-base"
+              className="select select-bordered w-full bg-base-100 text-base-content"
               id="assetPair"
               value={selectedAssetPair}
               onChange={e => setSelectedAssetPair(e.target.value)}
@@ -83,12 +84,13 @@ export default function DeviationPage() {
               <option value="BTC/USD">BTC/USD</option>
             </select>
           </div>
-          <div className="flex flex-col gap-1">
-            <label className="text-sm font-medium text-gray-700 mb-1" htmlFor="dataSources">
+
+          <div className="flex flex-col gap-2">
+            <label className="text-sm font-semibold text-base-content/80" htmlFor="dataSources">
               Data Sources
             </label>
             <select
-              className="form-multiselect w-full rounded-lg text-gray-800 border-gray-300 focus:border-blue-600 focus:ring-blue-600 h-auto placeholder:text-gray-400 px-3 text-base py-2"
+              className="select select-bordered w-full bg-base-100 text-base-content"
               id="dataSources"
               multiple
               value={selectedDataSources}
@@ -98,14 +100,15 @@ export default function DeviationPage() {
               <option value="sourceB">Pyth Onchain Ethereum L1</option>
               <option value="sourceC">ExchangeRate API</option>
             </select>
-            <p className="text-xs text-gray-500 mt-1">Select multiple sources to compare.</p>
+            <p className="text-xs text-base-content/60">Select multiple sources to compare.</p>
           </div>
-          <div className="flex flex-col gap-1">
-            <label className="text-sm font-medium text-gray-700 mb-1" htmlFor="baseSource">
+
+          <div className="flex flex-col gap-2">
+            <label className="text-sm font-semibold text-base-content/80" htmlFor="baseSource">
               Base Source for Deviation
             </label>
             <select
-              className="form-select w-full rounded-lg text-gray-800 border-gray-300 focus:border-blue-600 focus:ring-blue-600 h-12 placeholder:text-gray-400 px-3 text-base"
+              className="select select-bordered w-full bg-base-100 text-base-content"
               id="baseSource"
               value={baseSource}
               onChange={e => setBaseSource(e.target.value)}
