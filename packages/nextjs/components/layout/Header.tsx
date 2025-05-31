@@ -1,8 +1,8 @@
 import Link from "next/link";
-import { useRouter } from "next/router";
+import { usePathname } from "next/navigation";
 
 const Header = () => {
-  const router = useRouter();
+  const pathname = usePathname();
 
   return (
     <header className="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-slate-200 px-6 sm:px-10 py-4 bg-white shadow-sm sticky top-0 z-50">
@@ -28,7 +28,7 @@ const Header = () => {
           <Link
             href="/"
             className={`text-sm font-medium leading-normal transition-colors ${
-              router.pathname === "/" ? "text-blue-600" : "text-slate-700 hover:text-blue-600"
+              pathname === "/" ? "text-blue-600" : "text-slate-700 hover:text-blue-600"
             }`}
           >
             Overview
@@ -36,7 +36,7 @@ const Header = () => {
           <Link
             href="/deviation"
             className={`text-sm font-medium leading-normal transition-colors ${
-              router.pathname === "/deviation" ? "text-blue-600" : "text-slate-700 hover:text-blue-600"
+              pathname === "/deviation" ? "text-blue-600" : "text-slate-700 hover:text-blue-600"
             }`}
           >
             Deviation Analysis
@@ -44,7 +44,7 @@ const Header = () => {
           <Link
             href="/sources"
             className={`text-sm font-medium leading-normal transition-colors ${
-              router.pathname === "/sources" ? "text-blue-600" : "text-slate-700 hover:text-blue-600"
+              pathname === "/sources" ? "text-blue-600" : "text-slate-700 hover:text-blue-600"
             }`}
           >
             Data Sources
@@ -52,7 +52,7 @@ const Header = () => {
           <Link
             href="/social"
             className={`text-sm font-medium leading-normal transition-colors ${
-              router.pathname === "/social" ? "text-blue-600" : "text-slate-700 hover:text-blue-600"
+              pathname === "/social" ? "text-blue-600" : "text-slate-700 hover:text-blue-600"
             }`}
           >
             Social Feedback
