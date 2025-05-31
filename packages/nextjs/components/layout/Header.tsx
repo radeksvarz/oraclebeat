@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { RainbowKitCustomConnectButton } from "~~/components/scaffold-eth";
 
 const Header = () => {
   const pathname = usePathname();
@@ -21,7 +22,7 @@ const Header = () => {
             />
           </svg>
         </div>
-        <h1 className="text-xl font-bold leading-tight tracking-tight text-slate-900">Oracle Beat</h1>
+        <span className="text-lg font-semibold">Oracle Beat</span>
       </Link>
       <div className="flex flex-1 justify-end items-center gap-4 sm:gap-6">
         <nav className="hidden sm:flex items-center gap-6">
@@ -58,13 +59,7 @@ const Header = () => {
             Social Feedback
           </Link>
         </nav>
-        <div
-          className="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 border border-slate-200"
-          style={{
-            backgroundImage:
-              'url("https://lh3.googleusercontent.com/aida-public/AB6AXuDHW_abw3rItwLjo3Um4KZfT9Jlck9plVsWp0bxae_QG-kcFNLz2xGQc-coKJZWJq1r8hzgwf7DWH6YJ-fHf884XGQOGEDM4VjdsVFhO65HLU83xi_ITpbc_B4Pw-eRkqyRWOYuoy8q8ya4fMOQch1NM5uNe3EheZbRxkt4A8YqjM-nq5EmJpt_13XQVwFT6BdSaJsJlHBF2Z9ZJ2wfb2fUpIKSvrIDxaWQ43BskpuW-SYAOu13USVVbL07quPLAMc-BJw8UWdujTDw")',
-          }}
-        />
+        <RainbowKitCustomConnectButton />
       </div>
     </header>
   );
