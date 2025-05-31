@@ -19,68 +19,64 @@ const PriceComparisonMatrix: FC<PriceComparisonMatrixProps> = ({ assetPair, last
     <div className="bg-base-100 shadow-lg rounded-lg p-6 mb-8">
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6">
         <div>
-          <h3 className="text-gray-800 text-xl font-semibold leading-normal">Real-Time Price Comparison Matrix</h3>
-          <p className="text-gray-500 text-sm">
+          <h3 className="text-xl font-semibold text-base-content">Real-Time Price Comparison Matrix</h3>
+          <p className="text-base-content/70 text-sm">
             {assetPair} - Last updated: {lastUpdated}
           </p>
         </div>
-        <button className="mt-4 sm:mt-0 flex items-center gap-2 px-4 py-2 bg-yellow-400 text-gray-800 font-semibold rounded-lg hover:bg-yellow-500 transition-colors shadow-md">
-          <span className="material-icons text-lg">crisis_alert</span>
-          Deviation Hunter
-          <span className="bg-blue-600 text-white text-xs font-bold px-2 py-0.5 rounded-full">Earn Merits</span>
+        <button className="mt-4 sm:mt-0 inline-flex items-center gap-2 px-4 py-2.5 bg-primary/10 hover:bg-primary/20 text-primary font-semibold rounded-lg transition-colors">
+          <span className="material-icons text-[20px] leading-none">crisis_alert</span>
+          <span>Deviation Hunter</span>
+          <span className="bg-primary text-primary-content text-xs font-bold px-2 py-0.5 rounded-full">
+            Earn Merits
+          </span>
         </button>
       </div>
       <div className="overflow-x-auto @container">
-        <table className="min-w-full divide-y divide-gray-200">
-          <thead className="bg-gray-50">
+        <table className="min-w-full divide-y divide-base-300">
+          <thead className="bg-base-200">
             <tr>
               <th
-                className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider table-col-source"
+                className="px-6 py-3 text-left text-xs font-medium text-base-content/70 uppercase tracking-wider table-col-source"
                 scope="col"
               >
                 Source
               </th>
               <th
-                className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider table-col-price"
+                className="px-6 py-3 text-left text-xs font-medium text-base-content/70 uppercase tracking-wider table-col-price"
                 scope="col"
               >
                 Current Price
               </th>
               <th
-                className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider table-col-dev-abs"
+                className="px-6 py-3 text-left text-xs font-medium text-base-content/70 uppercase tracking-wider table-col-dev-abs"
                 scope="col"
               >
                 Deviation from Base ($)
               </th>
               <th
-                className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider table-col-dev-perc"
+                className="px-6 py-3 text-left text-xs font-medium text-base-content/70 uppercase tracking-wider table-col-dev-perc"
                 scope="col"
               >
                 Deviation from Base (%)
               </th>
             </tr>
           </thead>
-          <tbody className="bg-white divide-y divide-gray-200">
+          <tbody className="bg-base-100 divide-y divide-base-300">
             {priceData.map((data, index) => (
               <tr key={index}>
-                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 table-col-source">
+                <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-base-content table-col-source">
                   {data.source}
                   {data.isBase && " (Base)"}
                 </td>
-                <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 table-col-price">
+                <td className="px-6 py-4 whitespace-nowrap text-sm text-base-content/70 table-col-price">
                   ${data.price.toFixed(2)}
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm table-col-dev-abs">
                   {data.isBase ? (
                     "-"
                   ) : (
-                    <span
-                      className={
-                        data.deviationAbs && data.deviationAbs > 0
-                          ? "text-green-600 font-medium"
-                          : "text-red-600 font-medium"
-                      }
-                    >
+                    <span className={data.deviationAbs && data.deviationAbs > 0 ? "text-success" : "text-error"}>
                       {data.deviationAbs
                         ? (data.deviationAbs > 0 ? "+" : "") + "$" + Math.abs(data.deviationAbs).toFixed(2)
                         : "-"}
@@ -91,13 +87,7 @@ const PriceComparisonMatrix: FC<PriceComparisonMatrixProps> = ({ assetPair, last
                   {data.isBase ? (
                     "-"
                   ) : (
-                    <span
-                      className={
-                        data.deviationPerc && data.deviationPerc > 0
-                          ? "text-green-600 font-medium"
-                          : "text-red-600 font-medium"
-                      }
-                    >
+                    <span className={data.deviationPerc && data.deviationPerc > 0 ? "text-success" : "text-error"}>
                       {data.deviationPerc
                         ? (data.deviationPerc > 0 ? "+" : "") + data.deviationPerc.toFixed(2) + "%"
                         : "-"}
