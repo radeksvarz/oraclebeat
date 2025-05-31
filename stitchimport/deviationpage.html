@@ -1,0 +1,276 @@
+<html><head>
+    <meta charset="utf-8"/>
+    <link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+    <link as="style" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Inter%3Awght%40400%3B500%3B600%3B700%3B900&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900" onload="this.rel='stylesheet'" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+    <title>Oracle Beat - Insights and Deviation Analysis</title>
+    <link href="data:image/x-icon;base64," rel="icon" type="image/x-icon"/>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <style type="text/tailwindcss">
+        @layer base {
+          :root {
+            --color-primary: #0c77f2;
+            --color-primary-content: #ffffff;
+            --color-secondary: #e0e0e0;
+            --color-secondary-content: #333333;
+            --color-accent: #ffc107;
+            --color-neutral: #f5f5f5;
+            --color-base-100: #ffffff;
+            --color-info: #2196f3;
+            --color-success: #4caf50;
+            --color-warning: #ff9800;
+            --color-error: #f44336;
+          }
+          body {
+            font-family: "Inter", "Noto Sans", sans-serif;
+          }
+          .material-icons {
+            font-family: "Material Icons";
+            font-weight: normal;
+            font-style: normal;
+            font-size: 24px;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
+            -moz-osx-font-smoothing: grayscale;
+            font-feature-settings: "liga";
+          }
+        }
+      </style>
+    </head>
+    <body class="bg-neutral text-gray-800">
+    <div class="relative flex size-full min-h-screen flex-col group/design-root overflow-x-hidden">
+    <div class="layout-container flex h-full grow flex-col">
+    <header class="flex items-center justify-between whitespace-nowrap border-b border-secondary bg-base-100 px-6 py-4 shadow-sm">
+    <div class="flex items-center gap-3 text-primary-content">
+    <div class="text-primary">
+    <svg class="size-8" fill="currentColor" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+    <path d="M13.8261 30.5736C16.7203 29.8826 20.2244 29.4783 24 29.4783C27.7756 29.4783 31.2797 29.8826 34.1739 30.5736C36.9144 31.2278 39.9967 32.7669 41.3563 33.8352L24.8486 7.36089C24.4571 6.73303 23.5429 6.73303 23.1514 7.36089L6.64374 33.8352C8.00331 32.7669 11.0856 31.2278 13.8261 30.5736Z"></path>
+    <path clip-rule="evenodd" d="M39.998 35.764C39.9944 35.7463 39.9875 35.7155 39.9748 35.6706C39.9436 35.5601 39.8949 35.4259 39.8346 35.2825C39.8168 35.2403 39.7989 35.1993 39.7813 35.1602C38.5103 34.2887 35.9788 33.0607 33.7095 32.5189C30.9875 31.8691 27.6413 31.4783 24 31.4783C20.3587 31.4783 17.0125 31.8691 14.2905 32.5189C12.0012 33.0654 9.44505 34.3104 8.18538 35.1832C8.17384 35.2075 8.16216 35.233 8.15052 35.2592C8.09919 35.3751 8.05721 35.4886 8.02977 35.589C8.00356 35.6848 8.00039 35.7333 8.00004 35.7388C8.00004 35.739 8 35.7393 8.00004 35.7388C8.00004 35.7641 8.0104 36.0767 8.68485 36.6314C9.34546 37.1746 10.4222 37.7531 11.9291 38.2772C14.9242 39.319 19.1919 40 24 40C28.8081 40 33.0758 39.319 36.0709 38.2772C37.5778 37.7531 38.6545 37.1746 39.3151 36.6314C39.9006 36.1499 39.9857 35.8511 39.998 35.764ZM4.95178 32.7688L21.4543 6.30267C22.6288 4.4191 25.3712 4.41909 26.5457 6.30267L43.0534 32.777C43.0709 32.8052 43.0878 32.8338 43.104 32.8629L41.3563 33.8352C43.104 32.8629 43.1038 32.8626 43.104 32.8629L43.1051 32.865L43.1065 32.8675L43.1101 32.8739L43.1199 32.8918C43.1276 32.906 43.1377 32.9246 43.1497 32.9473C43.1738 32.9925 43.2062 33.0545 43.244 33.1299C43.319 33.2792 43.4196 33.489 43.5217 33.7317C43.6901 34.1321 44 34.9311 44 35.7391C44 37.4427 43.003 38.7775 41.8558 39.7209C40.6947 40.6757 39.1354 41.4464 37.385 42.0552C33.8654 43.2794 29.133 44 24 44C18.867 44 14.1346 43.2794 10.615 42.0552C8.86463 41.4464 7.30529 40.6757 6.14419 39.7209C4.99695 38.7775 3.99999 37.4427 3.99999 35.7391C3.99999 34.8725 4.29264 34.0922 4.49321 33.6393C4.60375 33.3898 4.71348 33.1804 4.79687 33.0311C4.83898 32.9556 4.87547 32.8935 4.9035 32.8471C4.91754 32.8238 4.92954 32.8043 4.93916 32.7889L4.94662 32.777L4.95178 32.7688ZM35.9868 29.004L24 9.77997L12.0131 29.004C12.4661 28.8609 12.9179 28.7342 13.3617 28.6282C16.4281 27.8961 20.0901 27.4783 24 27.4783C27.9099 27.4783 31.5719 27.8961 34.6383 28.6282C35.082 28.7342 35.5339 28.8609 35.9868 29.004Z" fill-rule="evenodd"></path>
+    </svg>
+    </div>
+    <h1 class="text-gray-800 text-xl font-bold leading-tight tracking-[-0.015em]">Oracle Beat</h1>
+    </div>
+    <nav class="flex flex-1 justify-center">
+    <ul class="flex items-center gap-8">
+    <li><a class="text-gray-600 hover:text-primary text-sm font-medium leading-normal" href="#">Overview</a></li>
+    <li><a class="text-primary text-sm font-bold leading-normal border-b-2 border-primary pb-1" href="#">Deviation Analysis</a></li>
+    <li><a class="text-gray-600 hover:text-primary text-sm font-medium leading-normal" href="#">Data Sources</a></li>
+    <li><a class="text-gray-600 hover:text-primary text-sm font-medium leading-normal" href="#">Social Feedback</a></li>
+    </ul>
+    </nav>
+    <div class="flex items-center gap-4">
+    <button aria-label="Notifications" class="flex items-center justify-center rounded-full h-10 w-10 hover:bg-gray-100 text-gray-600 transition-colors">
+    <span class="material-icons">notifications</span>
+    </button>
+    <div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 border border-secondary" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDWikMm6T7SuVKxK6ge06unauLoUWF98vzIntMKuCjrKvczmgZG0za7jF3krgV92Bl2jLkvuN-zhoCdsutFhCx2s1cVFu7hfW1_t6Z0D-Oiz0ZfLckc--6w64_F0GHclJgEamALIY1s6r5Hm2RHFcDPg-8m1WkhizkxCHlinfNQ4rOsZSDm30ghzTyShv_5k9AvPD4oP1ayTVqFMWUUt9qjKxMHthVXsMuqEMymkQZyHSQJ3pl4XicHoM8OoEIBx3IaopJm7kSJIWMC");'></div>
+    </div>
+    </header>
+    <main class="flex flex-1 justify-center py-8 px-4 sm:px-6 lg:px-8 bg-neutral">
+    <div class="layout-content-container flex flex-col w-full max-w-6xl">
+    <div class="mb-8 p-4">
+    <h2 class="text-gray-800 text-3xl font-bold leading-tight">Deviation Analysis</h2>
+    <p class="text-gray-500 text-base font-normal leading-normal mt-1">Compare real-time prices from multiple sources and analyze deviations.</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 px-4 mb-8">
+    <div class="flex flex-col gap-1">
+    <label class="text-sm font-medium text-gray-700 mb-1" for="assetPair">Asset Pair</label>
+    <select class="form-select w-full rounded-lg text-gray-800 border-gray-300 focus:border-primary focus:ring-primary h-12 placeholder:text-gray-400 px-3 text-base" id="assetPair">
+    <option value="EUR/USD">EUR/USD</option>
+    <option value="AAPL/USD">AAPL/USD</option>
+    <option value="ETH/USD">ETH/USD</option>
+    <option value="BTC/USD">BTC/USD</option>
+    </select>
+    </div>
+    <div class="flex flex-col gap-1">
+    <label class="text-sm font-medium text-gray-700 mb-1" for="dataSources">Data Sources</label>
+    <select class="form-multiselect w-full rounded-lg text-gray-800 border-gray-300 focus:border-primary focus:ring-primary h-auto placeholder:text-gray-400 px-3 text-base py-2" id="dataSources" multiple="">
+    <option value="sourceA">Pyth Network</option>
+    <option value="sourceB">Pyth Onchain Ethereum L1</option>
+    <option value="sourceC">ExchangeRate API</option>
+    </select>
+    <p class="text-xs text-gray-500 mt-1">Select multiple sources to compare.</p>
+    </div>
+    <div class="flex flex-col gap-1">
+    <label class="text-sm font-medium text-gray-700 mb-1" for="baseSource">Base Source for Deviation</label>
+    <select class="form-select w-full rounded-lg text-gray-800 border-gray-300 focus:border-primary focus:ring-primary h-12 placeholder:text-gray-400 px-3 text-base" id="baseSource">
+    <option value="">None (Pairwise Deviations)</option>
+    <option value="sourceA" selected>Pyth Network</option>
+    <option value="sourceB">Pyth Onchain Ethereum L1</option>
+    <option value="sourceC">ExchangeRate API</option>
+    </select>
+    </div>
+    </div>
+    <div class="bg-base-100 shadow-lg rounded-lg p-6 mb-8">
+    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6">
+    <div>
+    <h3 class="text-gray-800 text-xl font-semibold leading-normal">Real-Time Price Comparison Matrix</h3>
+    <p class="text-gray-500 text-sm">EUR/USD - Last updated: Just now</p>
+    </div>
+    <button class="mt-4 sm:mt-0 flex items-center gap-2 px-4 py-2 bg-accent text-gray-800 font-semibold rounded-lg hover:bg-yellow-400 transition-colors shadow-md">
+    <span class="material-icons text-lg">crisis_alert</span>
+                    Deviation Hunter
+                    <span class="bg-primary text-primary-content text-xs font-bold px-2 py-0.5 rounded-full">Earn Merits</span>
+    </button>
+    </div>
+    <div class="overflow-x-auto @container">
+    <table class="min-w-full divide-y divide-gray-200">
+    <thead class="bg-gray-50">
+    <tr>
+    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider table-col-source" scope="col">Source</th>
+    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider table-col-price" scope="col">Current Price</th>
+    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider table-col-dev-abs" scope="col">Deviation from Base ($)</th>
+    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider table-col-dev-perc" scope="col">Deviation from Base (%)</th>
+    </tr>
+    </thead>
+    <tbody class="bg-white divide-y divide-gray-200">
+    <tr>
+    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 table-col-source">Pyth Network (Base)</td>
+    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 table-col-price">$1,850.75</td>
+    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 table-col-dev-abs">-</td>
+    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 table-col-dev-perc">-</td>
+    </tr>
+    <tr>
+    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 table-col-source">Pyth Onchain Ethereum L1</td>
+    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 table-col-price">$1,853.20</td>
+    <td class="px-6 py-4 whitespace-nowrap text-sm text-success font-medium table-col-dev-abs">+$2.45</td>
+    <td class="px-6 py-4 whitespace-nowrap text-sm text-success font-medium table-col-dev-perc">+0.13%</td>
+    </tr>
+    <tr>
+    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 table-col-source">ExchangeRate API</td>
+    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 table-col-price">$1,848.90</td>
+    <td class="px-6 py-4 whitespace-nowrap text-sm text-error font-medium table-col-dev-abs">-$1.85</td>
+    <td class="px-6 py-4 whitespace-nowrap text-sm text-error font-medium table-col-dev-perc">-0.10%</td>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+    <style>
+                  @container (max-width: 600px) {
+                    .table-col-dev-abs {
+                      display: none;
+                    }
+                  }
+                  @container (max-width: 480px) {
+                    .table-col-dev-perc {
+                      display: none;
+                    }
+                  }
+                </style>
+    </div>
+    <div class="bg-base-100 shadow-lg rounded-lg p-6 mb-8">
+    <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-4">
+    <div>
+    <h3 class="text-gray-800 text-xl font-semibold leading-normal">EUR/USD Historical Price</h3>
+    <p class="text-gray-500 text-sm">Interactive chart displaying price trends over time.</p>
+    </div>
+    <div class="mt-3 md:mt-0">
+    <p class="text-gray-800 text-4xl font-bold tracking-tight">$1,850.75</p>
+    <div class="flex items-center gap-1 text-sm">
+    <p class="text-gray-500">24h Change:</p>
+    <p class="text-success font-medium flex items-center">
+    <span class="material-icons text-base mr-0.5">arrow_upward</span>+2.5% (+$45.12)
+                      </p>
+    </div>
+    </div>
+    </div>
+    <div class="relative h-96 bg-gray-50 rounded-md p-4 border border-secondary">
+    <div class="flex items-center justify-center h-full text-gray-400">
+    <span class="material-icons text-5xl mr-2">insights</span>
+    <p>Interactive Historical Price Graph Area</p>
+    </div>
+    <div class="absolute bottom-4 left-1/2 -translate-x-1/2 w-auto">
+    <div class="flex items-center gap-2 bg-primary/10 border border-primary/30 p-3 rounded-lg shadow-md animate-pulse">
+    <span class="material-icons text-primary text-xl">lightbulb</span>
+    <p class="text-primary text-sm font-medium">Found a deviation? Select point/range &amp; contribute insight to earn Merits!</p>
+    <button class="ml-2 text-primary hover:text-primary/80">
+    <span class="material-icons text-xl">close</span>
+    </button>
+    </div>
+    </div>
+    </div>
+    <div class="flex justify-end mt-4 space-x-2">
+    <button class="px-3 py-1.5 text-xs font-medium text-primary border border-primary rounded-md hover:bg-primary/10">1H</button>
+    <button class="px-3 py-1.5 text-xs font-medium text-primary border border-primary rounded-md hover:bg-primary/10">6H</button>
+    <button class="px-3 py-1.5 text-xs font-medium text-white bg-primary border border-primary rounded-md">1D</button>
+    <button class="px-3 py-1.5 text-xs font-medium text-primary border border-primary rounded-md hover:bg-primary/10">7D</button>
+    <button class="px-3 py-1.5 text-xs font-medium text-primary border border-primary rounded-md hover:bg-primary/10">1M</button>
+    <button class="px-3 py-1.5 text-xs font-medium text-primary border border-primary rounded-md hover:bg-primary/10">
+    <span class="material-icons text-sm">date_range</span>
+    </button>
+    </div>
+    </div>
+    <div class="bg-base-100 shadow-lg rounded-lg p-6">
+    <h3 class="text-gray-800 text-xl font-semibold leading-tight mb-4">Historical Data Summary</h3>
+    <div class="overflow-x-auto @container">
+    <table class="min-w-full divide-y divide-gray-200">
+    <thead class="bg-gray-50">
+    <tr>
+    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider table-col-source" scope="col">Source</th>
+    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider table-col-avg" scope="col">Average Price</th>
+    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider table-col-max" scope="col">Max Price</th>
+    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider table-col-min" scope="col">Min Price</th>
+    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider table-col-hist-dev-abs" scope="col">Avg. Deviation ($)</th>
+    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider table-col-hist-dev-perc" scope="col">Avg. Deviation (%)</th>
+    </tr>
+    </thead>
+    <tbody class="bg-white divide-y divide-gray-200">
+    <tr>
+    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 table-col-source">Pyth Network (Base)</td>
+    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 table-col-avg">$1,845.00</td>
+    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 table-col-max">$1,855.00</td>
+    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 table-col-min">$1,835.00</td>
+    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 table-col-hist-dev-abs">-</td>
+    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 table-col-hist-dev-perc">-</td>
+    </tr>
+    <tr>
+    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 table-col-source">Pyth Onchain Ethereum L1</td>
+    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 table-col-avg">$1,852.50</td>
+    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 table-col-max">$1,860.00</td>
+    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 table-col-min">$1,840.00</td>
+    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 table-col-hist-dev-abs">+$7.50</td>
+    <td class="px-6 py-4 whitespace-nowrap text-sm text-success font-medium table-col-hist-dev-perc">+0.41%</td>
+    </tr>
+    <tr>
+    <td class="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900 table-col-source">ExchangeRate API</td>
+    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 table-col-avg">$1,848.20</td>
+    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 table-col-max">$1,858.00</td>
+    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 table-col-min">$1,838.50</td>
+    <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500 table-col-hist-dev-abs">+$3.20</td>
+    <td class="px-6 py-4 whitespace-nowrap text-sm text-success font-medium table-col-hist-dev-perc">+0.17%</td>
+    </tr>
+    </tbody>
+    </table>
+    </div>
+    <style>
+                  @container (max-width: 800px) {
+                    .table-col-hist-dev-abs,
+                    .table-col-hist-dev-perc {
+                      display: none;
+                    }
+                  }
+                  @container (max-width: 640px) {
+                    .table-col-max,
+                    .table-col-min {
+                      display: none;
+                    }
+                  }
+                  @container (max-width: 480px) {
+                    .table-col-avg {
+                      display: none;
+                    }
+                  }
+                </style>
+    </div>
+    </div>
+    </main>
+    </div>
+    </div>
+    </body></html>
+    
