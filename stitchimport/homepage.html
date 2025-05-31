@@ -1,0 +1,254 @@
+<html><head>
+    <meta charset="utf-8"/>
+    <link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+    <link as="style" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Inter%3Awght%40400%3B500%3B600%3B700%3B900&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900" onload="this.rel='stylesheet'" rel="stylesheet"/>
+    <title>Oracle Beat - Real-Time &amp; Historical Price Data Comparison</title>
+    <link href="data:image/x-icon;base64," rel="icon" type="image/x-icon"/>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <style>
+        .form-select:disabled {
+          background-color: #f3f4f6;
+          opacity: 0.7;
+          cursor: not-allowed;
+        }
+        .form-select:disabled~.disabled-overlay {
+          display: block;
+        }
+        .disabled-overlay {
+          display: none;
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background-color: rgba(243, 244, 246, 0.5);
+          z-index: 10;
+          border-radius: 0.5rem;
+        }
+      </style>
+    </head>
+    <body class="bg-slate-100" style="font-family: Inter, 'Noto Sans', sans-serif;">
+    <div class="relative flex size-full min-h-screen flex-col group/design-root overflow-x-hidden">
+    <div class="layout-container flex h-full grow flex-col">
+    <header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-slate-200 px-6 sm:px-10 py-4 bg-white shadow-sm sticky top-0 z-50">
+    <a class="flex items-center gap-3 text-slate-900 hover:text-blue-600 transition-colors" href="/">
+    <div class="size-8 text-blue-600">
+    <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+    <path d="M13.8261 30.5736C16.7203 29.8826 20.2244 29.4783 24 29.4783C27.7756 29.4783 31.2797 29.8826 34.1739 30.5736C36.9144 31.2278 39.9967 32.7669 41.3563 33.8352L24.8486 7.36089C24.4571 6.73303 23.5429 6.73303 23.1514 7.36089L6.64374 33.8352C8.00331 32.7669 11.0856 31.2278 13.8261 30.5736Z" fill="currentColor"></path>
+    <path clip-rule="evenodd" d="M39.998 35.764C39.9944 35.7463 39.9875 35.7155 39.9748 35.6706C39.9436 35.5601 39.8949 35.4259 39.8346 35.2825C39.8168 35.2403 39.7989 35.1993 39.7813 35.1602C38.5103 34.2887 35.9788 33.0607 33.7095 32.5189C30.9875 31.8691 27.6413 31.4783 24 31.4783C20.3587 31.4783 17.0125 31.8691 14.2905 32.5189C12.0012 33.0654 9.44505 34.3104 8.18538 35.1832C8.17384 35.2075 8.16216 35.233 8.15052 35.2592C8.09919 35.3751 8.05721 35.4886 8.02977 35.589C8.00356 35.6848 8.00039 35.7333 8.00004 35.7388C8.00004 35.739 8 35.7393 8.00004 35.7388C8.00004 35.7641 8.0104 36.0767 8.68485 36.6314C9.34546 37.1746 10.4222 37.7531 11.9291 38.2772C14.9242 39.319 19.1919 40 24 40C28.8081 40 33.0758 39.319 36.0709 38.2772C37.5778 37.7531 38.6545 37.1746 39.3151 36.6314C39.9006 36.1499 39.9857 35.8511 39.998 35.764ZM4.95178 32.7688L21.4543 6.30267C22.6288 4.4191 25.3712 4.41909 26.5457 6.30267L43.0534 32.777C43.0709 32.8052 43.0878 32.8338 43.104 32.8629L41.3563 33.8352C43.104 32.8629 43.1038 32.8626 43.104 32.8629L43.1051 32.865L43.1065 32.8675L43.1101 32.8739L43.1199 32.8918C43.1276 32.906 43.1377 32.9246 43.1497 32.9473C43.1738 32.9925 43.2062 33.0545 43.244 33.1299C43.319 33.2792 43.4196 33.489 43.5217 33.7317C43.6901 34.1321 44 34.9311 44 35.7391C44 37.4427 43.003 38.7775 41.8558 39.7209C40.6947 40.6757 39.1354 41.4464 37.385 42.0552C33.8654 43.2794 29.133 44 24 44C18.867 44 14.1346 43.2794 10.615 42.0552C8.86463 41.4464 7.30529 40.6757 6.14419 39.7209C4.99695 38.7775 3.99999 37.4427 3.99999 35.7391C3.99999 34.8725 4.29264 34.0922 4.49321 33.6393C4.60375 33.3898 4.71348 33.1804 4.79687 33.0311C4.83898 32.9556 4.87547 32.8935 4.9035 32.8471C4.91754 32.8238 4.92954 32.8043 4.93916 32.7889L4.94662 32.777L4.95178 32.7688ZM35.9868 29.004L24 9.77997L12.0131 29.004C12.4661 28.8609 12.9179 28.7342 13.3617 28.6282C16.4281 27.8961 20.0901 27.4783 24 27.4783C27.9099 27.4783 31.5719 27.8961 34.6383 28.6282C35.082 28.7342 35.5339 28.8609 35.9868 29.004Z" fill="currentColor" fill-rule="evenodd"></path>
+    </svg>
+    </div>
+    <h1 class="text-xl font-bold leading-tight tracking-tight text-slate-900">Oracle Beat</h1>
+    </a>
+    <div class="flex flex-1 justify-end items-center gap-4 sm:gap-6">
+    <nav class="hidden sm:flex items-center gap-6">
+    <a class="text-slate-700 hover:text-blue-600 text-sm font-medium leading-normal transition-colors" href="#">Overview</a>
+    <a class="text-slate-700 hover:text-blue-600 text-sm font-medium leading-normal transition-colors" href="#">Deviation Analysis</a>
+    <a class="text-slate-700 hover:text-blue-600 text-sm font-medium leading-normal transition-colors" href="#">Data Sources</a>
+    <a class="text-slate-700 hover:text-blue-600 text-sm font-medium leading-normal transition-colors" href="#">Social Feedback</a>
+    </nav>
+    <div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 border border-slate-200" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDHW_abw3rItwLjo3Um4KZfT9Jlck9plVsWp0bxae_QG-kcFNLz2xGQc-coKJZWJq1r8hzgwf7DWH6YJ-fHf884XGQOGEDM4VjdsVFhO65HLU83xi_ITpbc_B4Pw-eRkqyRWOYuoy8q8ya4fMOQch1NM5uNe3EheZbRxkt4A8YqjM-nq5EmJpt_13XQVwFT6BdSaJsJlHBF2Z9ZJ2wfb2fUpIKSvrIDxaWQ43BskpuW-SYAOu13USVVbL07quPLAMc-BJw8UWdujTDw");'></div>
+    </div>
+    </header>
+    <main class="flex-1">
+    <section class="bg-gradient-to-b from-blue-600 to-blue-700 text-white py-20 px-4 sm:px-6 lg:px-8 text-center">
+    <div class="max-w-4xl mx-auto">
+    <div class="flex justify-center mb-6">
+    <div class="size-16 text-white">
+    <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+    <path d="M13.8261 30.5736C16.7203 29.8826 20.2244 29.4783 24 29.4783C27.7756 29.4783 31.2797 29.8826 34.1739 30.5736C36.9144 31.2278 39.9967 32.7669 41.3563 33.8352L24.8486 7.36089C24.4571 6.73303 23.5429 6.73303 23.1514 7.36089L6.64374 33.8352C8.00331 32.7669 11.0856 31.2278 13.8261 30.5736Z" fill="currentColor"></path>
+    <path clip-rule="evenodd" d="M39.998 35.764C39.9944 35.7463 39.9875 35.7155 39.9748 35.6706C39.9436 35.5601 39.8949 35.4259 39.8346 35.2825C39.8168 35.2403 39.7989 35.1993 39.7813 35.1602C38.5103 34.2887 35.9788 33.0607 33.7095 32.5189C30.9875 31.8691 27.6413 31.4783 24 31.4783C20.3587 31.4783 17.0125 31.8691 14.2905 32.5189C12.0012 33.0654 9.44505 34.3104 8.18538 35.1832C8.17384 35.2075 8.16216 35.233 8.15052 35.2592C8.09919 35.3751 8.05721 35.4886 8.02977 35.589C8.00356 35.6848 8.00039 35.7333 8.00004 35.7388C8.00004 35.739 8 35.7393 8.00004 35.7388C8.00004 35.7641 8.0104 36.0767 8.68485 36.6314C9.34546 37.1746 10.4222 37.7531 11.9291 38.2772C14.9242 39.319 19.1919 40 24 40C28.8081 40 33.0758 39.319 36.0709 38.2772C37.5778 37.7531 38.6545 37.1746 39.3151 36.6314C39.9006 36.1499 39.9857 35.8511 39.998 35.764ZM4.95178 32.7688L21.4543 6.30267C22.6288 4.4191 25.3712 4.41909 26.5457 6.30267L43.0534 32.777C43.0709 32.8052 43.0878 32.8338 43.104 32.8629L41.3563 33.8352C43.104 32.8629 43.1038 32.8626 43.104 32.8629L43.1051 32.865L43.1065 32.8675L43.1101 32.8739L43.1199 32.8918C43.1276 32.906 43.1377 32.9246 43.1497 32.9473C43.1738 32.9925 43.2062 33.0545 43.244 33.1299C43.319 33.2792 43.4196 33.489 43.5217 33.7317C43.6901 34.1321 44 34.9311 44 35.7391C44 37.4427 43.003 38.7775 41.8558 39.7209C40.6947 40.6757 39.1354 41.4464 37.385 42.0552C33.8654 43.2794 29.133 44 24 44C18.867 44 14.1346 43.2794 10.615 42.0552C8.86463 41.4464 7.30529 40.6757 6.14419 39.7209C4.99695 38.7775 3.99999 37.4427 3.99999 35.7391C3.99999 34.8725 4.29264 34.0922 4.49321 33.6393C4.60375 33.3898 4.71348 33.1804 4.79687 33.0311C4.83898 32.9556 4.87547 32.8935 4.9035 32.8471C4.91754 32.8238 4.92954 32.8043 4.93916 32.7889L4.94662 32.777L4.95178 32.7688ZM35.9868 29.004L24 9.77997L12.0131 29.004C12.4661 28.8609 12.9179 28.7342 13.3617 28.6282C16.4281 27.8961 20.0901 27.4783 24 27.4783C27.9099 27.4783 31.5719 27.8961 34.6383 28.6282C35.082 28.7342 35.5339 28.8609 35.9868 29.004Z" fill="currentColor" fill-rule="evenodd"></path>
+    </svg>
+    </div>
+    </div>
+    <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight mb-4">Oracle Beat</h1>
+    <p class="text-xl sm:text-2xl text-blue-200 mb-8">Compare Web3 Oracles &amp; TradFi Data Side-by-Side.</p>
+    <p class="text-lg text-blue-100 max-w-2xl mx-auto mb-10">
+                  Gain unparalleled insights by comparing real-time and historical price data from Web3 oracles and traditional financial sources across FX, equities, and commodities. Visualize deviations, analyze source characteristics, and dive deep with dedicated detail pages.
+                </p>
+    </div>
+    </section>
+    <div class="py-12 px-4 sm:px-6 lg:px-8">
+    <div class="layout-content-container flex flex-col w-full max-w-4xl mx-auto">
+    <section class="space-y-10 bg-white p-6 sm:p-8 rounded-xl shadow-xl -mt-24 relative z-10 border border-slate-200">
+    <div>
+    <h2 class="text-slate-800 text-2xl font-semibold mb-1 text-center">Start Your Comprehensive Comparison</h2>
+    <p class="text-slate-600 text-center mb-6">Select an asset pair and data sources to visualize real-time and historical price data across platforms.</p>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+    <div class="p-6 bg-slate-50 rounded-lg border border-slate-200">
+    <h3 class="text-slate-800 text-lg font-semibold mb-3">1. Select Asset Pair</h3>
+    <div class="grid grid-cols-1 gap-4">
+    <label class="flex flex-col">
+    <span class="text-sm font-medium text-slate-700 mb-1.5">Base Asset</span>
+    <select class="form-select w-full rounded-lg text-slate-900 focus:outline-none focus:ring-2 focus:ring-blue-500 border-slate-300 bg-white h-12 px-4 text-base appearance-none" id="baseAsset" style="background-image: url('data:image/svg+xml,%3csvg xmlns=%27http://www.w3.org/2000/svg%27 fill=%27none%27 viewBox=%270 0 20 20%27%3e%3cpath stroke=%27%236b7280%27 stroke-linecap=%27round%27 stroke-linejoin=%27round%27 stroke-width=%271.5%27 d=%27M6 8l4 4 4-4%27/%3e%3c/svg%3e'); background-position: right 0.5rem center; background-repeat: no-repeat; background-size: 1.5em 1.5em;">
+    <option selected="" value="EUR">EUR (Euro)</option>
+    <option value="USD">USD (US Dollar)</option>
+    <option value="CZK">CZK (Czech Koruna)</option>
+    <option value="AAPL">AAPL (Apple Inc.)</option>
+    <option value="BTC">BTC (Bitcoin)</option>
+    <option value="ETH">ETH (Ethereum)</option>
+    </select>
+    </label>
+    <label class="flex flex-col">
+    <span class="text-sm font-medium text-slate-700 mb-1.5">Quote Asset</span>
+    <select class="form-select w-full rounded-lg text-slate-900 focus:outline-none focus:ring-2 focus:ring-blue-500 border-slate-300 bg-white h-12 px-4 text-base appearance-none" id="quoteAsset" style="background-image: url('data:image/svg+xml,%3csvg xmlns=%27http://www.w3.org/2000/svg%27 fill=%27none%27 viewBox=%270 0 20 20%27%3e%3cpath stroke=%27%236b7280%27 stroke-linecap=%27round%27 stroke-linejoin=%27round%27 stroke-width=%271.5%27 d=%27M6 8l4 4 4-4%27/%3e%3c/svg%3e'); background-position: right 0.5rem center; background-repeat: no-repeat; background-size: 1.5em 1.5em;">
+    <option selected="" value="USD">USD (US Dollar)</option>
+    <option value="EUR">EUR (Euro)</option>
+    <option value="AAPL">AAPL (Apple Inc.)</option>
+    <option value="BTC">BTC (Bitcoin)</option>
+    <option value="ETH">ETH (Ethereum)</option>
+    </select>
+    </label>
+    </div>
+    </div>
+    <div class="p-6 bg-slate-50 rounded-lg border border-slate-200 relative">
+    <div class="disabled-overlay" id="sourceDisabledOverlay"></div>
+    <h3 class="text-slate-800 text-lg font-semibold mb-1">2. Select Data Sources</h3>
+    <p class="text-xs text-slate-500 mb-3" id="dataSourceSubtitle">
+                          Please select an asset pair first to activate source selection.
+                        </p>
+    <div class="grid grid-cols-1 gap-4">
+    <label class="flex flex-col">
+    <span class="text-sm font-medium text-slate-700 mb-1.5">Web3 Oracles</span>
+    <select class="form-select w-full rounded-lg text-slate-900 focus:outline-none focus:ring-2 focus:ring-blue-500 border-slate-300 bg-white h-12 px-4 text-base appearance-none" disabled="" id="web3Oracles" style="background-image: url('data:image/svg+xml,%3csvg xmlns=%27http://www.w3.org/2000/svg%27 fill=%27none%27 viewBox=%270 0 20 20%27%3e%3cpath stroke=%27%236b7280%27 stroke-linecap=%27round%27 stroke-linejoin=%27round%27 stroke-width=%271.5%27 d=%27M6 8l4 4 4-4%27/%3e%3c/svg%3e'); background-position: right 0.5rem center; background-repeat: no-repeat; background-size: 1.5em 1.5em;">
+    <option value="">Select Oracle</option>
+    <option value="pythnetwork">Pyth Network</option>
+    <option value="pythonchain">Pyth Onchain Ethereum L1</option>
+    <option value="chainlink">Chainlink Ethereum L1</option>
+    <option value="tellor">Tellor</option>
+    <option value="redstone">Redstone</option>
+    </select>
+    </label>
+    <label class="flex flex-col">
+    <span class="text-sm font-medium text-slate-700 mb-1.5">Traditional APIs/Info</span>
+    <select class="form-select w-full rounded-lg text-slate-900 focus:outline-none focus:ring-2 focus:ring-blue-500 border-slate-300 bg-white h-12 px-4 text-base appearance-none" disabled="" id="traditionalSources" style="background-image: url('data:image/svg+xml,%3csvg xmlns=%27http://www.w3.org/2000/svg%27 fill=%27none%27 viewBox=%270 0 20 20%27%3e%3cpath stroke=%27%236b7280%27 stroke-linecap=%27round%27 stroke-linejoin=%27round%27 stroke-width=%271.5%27 d=%27M6 8l4 4 4-4%27/%3e%3c/svg%3e'); background-position: right 0.5rem center; background-repeat: no-repeat; background-size: 1.5em 1.5em;">
+    <option value="">Select Source</option>
+    <option value="exchangerateapi">ExchangeRate API</option>
+    <option value="bloomberg">Bloomberg</option>
+    <option value="reuters">Reuters</option>
+    <option value="yahoo">Yahoo Finance</option>
+    </select>
+    </label>
+    </div>
+    </div>
+    </div>
+    <div class="flex justify-center pt-4">
+    <button class="flex items-center justify-center rounded-lg h-12 px-8 bg-blue-600 text-white text-lg font-semibold leading-normal shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors disabled:opacity-50 disabled:cursor-not-allowed w-full sm:w-auto" disabled="" id="compareButton">
+    <svg class="mr-2 hidden sm:inline-block" fill="currentColor" height="24" viewBox="0 0 256 256" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M208,32H48A16,16,0,0,0,32,48V208a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V48A16,16,0,0,0,208,32ZM96,176a8,8,0,0,1-16,0V128a8,8,0,0,1,16,0Zm48,0a8,8,0,0,1-16,0V96a8,8,0,0,1,16,0Zm48,0a8,8,0,0,1-16,0V144a8,8,0,0,1,16,0Z"></path>
+    </svg>
+    <span>Compare Data</span>
+    </button>
+    </div>
+    </div>
+    </section>
+    <section class="py-16 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-6xl mx-auto">
+    <h2 class="text-3xl font-bold text-slate-900 text-center mb-12">Why Oracle Beat?</h2>
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <div class="bg-white p-8 rounded-xl shadow-lg border border-slate-200 text-center">
+    <div class="flex justify-center mb-4">
+    <svg class="w-12 h-12 text-blue-600" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M3 13.125C3 12.504 3.504 12 4.125 12H6.75V8.25C6.75 7.629 7.254 7.125 7.875 7.125H10.5V18H7.875C7.254 18 6.75 17.496 6.75 16.875V13.125H4.125C3.504 13.125 3 12.504 3 13.125ZM10.5 18V7.125M10.5 18H13.125C13.746 18 14.25 17.496 14.25 16.875V13.125H16.875C17.496 13.125 18 12.504 18 11.875V8.25C18 7.629 17.496 7.125 16.875 7.125H14.25M10.5 7.125H7.875M14.25 7.125V13.125M3.75 21.75H20.25M6 3.75H18M6 3.75V6.75M18 3.75V6.75" stroke-linecap="round" stroke-linejoin="round"></path>
+    </svg>
+    </div>
+    <h3 class="text-xl font-semibold text-slate-800 mb-2">Diverse Asset Coverage</h3>
+    <p class="text-slate-600">Compare price data across FX, equities, and commodities from both Web3 and traditional financial sources.</p>
+    </div>
+    <div class="bg-white p-8 rounded-xl shadow-lg border border-slate-200 text-center">
+    <div class="flex justify-center mb-4">
+    <svg class="w-12 h-12 text-blue-600" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M7.5 14.25v2.25m3-4.5v4.5m3-6.75v6.75m3-9v9M6 20.25h12A2.25 2.25 0 0020.25 18V6A2.25 2.25 0 0018 3.75H6A2.25 2.25 0 003.75 6v12A2.25 2.25 0 006 20.25z" stroke-linecap="round" stroke-linejoin="round"></path>
+    </svg>
+    </div>
+    <h3 class="text-xl font-semibold text-slate-800 mb-2">Visualize &amp; Quantify Deviations</h3>
+    <p class="text-slate-600">Clearly see and measure differences in price feeds through intuitive charts and detailed analytics.</p>
+    </div>
+    <div class="bg-white p-8 rounded-xl shadow-lg border border-slate-200 text-center">
+    <div class="flex justify-center mb-4">
+    <svg class="w-12 h-12 text-blue-600" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21M9 17.25v-4.5M9 17.25H5.25M15 17.25v1.007a3 3 0 00.879 2.122L16.5 21m-1.5-3.75v-4.5m1.5 4.5h3.75M3 4.5h18M4.5 4.5v12.75a3 3 0 003 3h9a3 3 0 003-3V4.5M12 4.5v6.75" stroke-linecap="round" stroke-linejoin="round"></path>
+    </svg>
+    </div>
+    <h3 class="text-xl font-semibold text-slate-800 mb-2">Comparative Matrix</h3>
+    <p class="text-slate-600">Understand data source characteristics (e.g., update frequency, methodology) for informed analysis.</p>
+    </div>
+    <div class="bg-white p-8 rounded-xl shadow-lg border border-slate-200 text-center">
+    <div class="flex justify-center mb-4">
+    <svg class="w-12 h-12 text-blue-600" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" stroke-linecap="round" stroke-linejoin="round"></path>
+    </svg>
+    </div>
+    <h3 class="text-xl font-semibold text-slate-800 mb-2">Dedicated Detail Pages</h3>
+    <p class="text-slate-600">Explore in-depth information for each asset pair and data source, including historical performance and community feedback.</p>
+    </div>
+    <div class="bg-white p-8 rounded-xl shadow-lg border border-slate-200 text-center">
+    <div class="flex justify-center mb-4">
+    <svg class="w-12 h-12 text-blue-600" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round"></path>
+    </svg>
+    </div>
+    <h3 class="text-xl font-semibold text-slate-800 mb-2">Real-Time &amp; Historical Data</h3>
+    <p class="text-slate-600">Track price movements with up-to-the-minute updates and deep historical data for robust analysis.</p>
+    </div>
+    <div class="bg-white p-8 rounded-xl shadow-lg border border-slate-200 text-center">
+    <div class="flex justify-center mb-4">
+    <svg class="w-12 h-12 text-blue-600" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A8.962 8.962 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z" stroke-linecap="round" stroke-linejoin="round"></path>
+    </svg>
+    </div>
+    <h3 class="text-xl font-semibold text-slate-800 mb-2">Merits System: Community Feedback</h3>
+    <p class="text-slate-600">Participate in a social feedback loop. Earn Merits by highlighting interesting asset pairs and price deviations, reflecting community focus.</p>
+    </div>
+    </div>
+    </div>
+    </section>
+    </div>
+    </div>
+    </main>
+    <footer class="mt-auto py-8 px-4 sm:px-10 border-t border-slate-200 bg-slate-800 text-slate-400">
+    <div class="max-w-6xl mx-auto text-center">
+    <a class="flex items-center justify-center gap-2 mb-4 text-slate-200 hover:text-white transition-colors" href="/">
+    <div class="size-7">
+    <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+    <path d="M13.8261 30.5736C16.7203 29.8826 20.2244 29.4783 24 29.4783C27.7756 29.4783 31.2797 29.8826 34.1739 30.5736C36.9144 31.2278 39.9967 32.7669 41.3563 33.8352L24.8486 7.36089C24.4571 6.73303 23.5429 6.73303 23.1514 7.36089L6.64374 33.8352C8.00331 32.7669 11.0856 31.2278 13.8261 30.5736Z" fill="currentColor"></path>
+    <path clip-rule="evenodd" d="M39.998 35.764C39.9944 35.7463 39.9875 35.7155 39.9748 35.6706C39.9436 35.5601 39.8949 35.4259 39.8346 35.2825C39.8168 35.2403 39.7989 35.1993 39.7813 35.1602C38.5103 34.2887 35.9788 33.0607 33.7095 32.5189C30.9875 31.8691 27.6413 31.4783 24 31.4783C20.3587 31.4783 17.0125 31.8691 14.2905 32.5189C12.0012 33.0654 9.44505 34.3104 8.18538 35.1832C8.17384 35.2075 8.16216 35.233 8.15052 35.2592C8.09919 35.3751 8.05721 35.4886 8.02977 35.589C8.00356 35.6848 8.00039 35.7333 8.00004 35.7388C8.00004 35.739 8 35.7393 8.00004 35.7388C8.00004 35.7641 8.0104 36.0767 8.68485 36.6314C9.34546 37.1746 10.4222 37.7531 11.9291 38.2772C14.9242 39.319 19.1919 40 24 40C28.8081 40 33.0758 39.319 36.0709 38.2772C37.5778 37.7531 38.6545 37.1746 39.3151 36.6314C39.9006 36.1499 39.9857 35.8511 39.998 35.764ZM4.95178 32.7688L21.4543 6.30267C22.6288 4.4191 25.3712 4.41909 26.5457 6.30267L43.0534 32.777C43.0709 32.8052 43.0878 32.8338 43.104 32.8629L41.3563 33.8352C43.104 32.8629 43.1038 32.8626 43.104 32.8629L43.1051 32.865L43.1065 32.8675L43.1101 32.8739L43.1199 32.8918C43.1276 32.906 43.1377 32.9246 43.1497 32.9473C43.1738 32.9925 43.2062 33.0545 43.244 33.1299C43.319 33.2792 43.4196 33.489 43.5217 33.7317C43.6901 34.1321 44 34.9311 44 35.7391C44 37.4427 43.003 38.7775 41.8558 39.7209C40.6947 40.6757 39.1354 41.4464 37.385 42.0552C33.8654 43.2794 29.133 44 24 44C18.867 44 14.1346 43.2794 10.615 42.0552C8.86463 41.4464 7.30529 40.6757 6.14419 39.7209C4.99695 38.7775 3.99999 37.4427 3.99999 35.7391C3.99999 34.8725 4.29264 34.0922 4.49321 33.6393C4.60375 33.3898 4.71348 33.1804 4.79687 33.0311C4.83898 32.9556 4.87547 32.8935 4.9035 32.8471C4.91754 32.8238 4.92954 32.8043 4.93916 32.7889L4.94662 32.777L4.95178 32.7688ZM35.9868 29.004L24 9.77997L12.0131 29.004C12.4661 28.8609 12.9179 28.7342 13.3617 28.6282C16.4281 27.8961 20.0901 27.4783 24 27.4783C27.9099 27.4783 31.5719 27.8961 34.6383 28.6282C35.082 28.7342 35.5339 28.8609 35.9868 29.004Z" fill="currentColor" fill-rule="evenodd"></path>
+    </svg>
+    </div>
+    <span class="text-lg font-semibold">Oracle Beat</span>
+    </a>
+    <p class="text-sm">2025 Oracle Beat. Made with ❤️ during <a href="https://ethprague.com/" class="text-blue-400 hover:text-blue-300">ETH Prague Hackathon</a> by <a href="https://www.meetup.com/beerfi/" class="text-blue-400 hover:text-blue-300">BeerFi builders community</a>.</p>
+    </div>
+    </footer>
+    </div>
+    </div>
+    <script>
+        // Simple script to enable/disable source selection and compare button based on asset pair selection
+        const baseAssetSelect = document.getElementById('baseAsset');
+        const quoteAssetSelect = document.getElementById('quoteAsset');
+        const web3OraclesSelect = document.getElementById('web3Oracles');
+        const traditionalSourcesSelect = document.getElementById('traditionalSources');
+        const compareButton = document.getElementById('compareButton');
+        const dataSourceSubtitle = document.getElementById('dataSourceSubtitle');
+        const sourceDisabledOverlay = document.getElementById('sourceDisabledOverlay');
+        function checkAssetSelection() {
+          const baseAssetSelected = baseAssetSelect.value !== '';
+          const quoteAssetSelected = quoteAssetSelect.value !== '';
+          const assetsSelected = baseAssetSelected && quoteAssetSelected;
+          web3OraclesSelect.disabled = !assetsSelected;
+          traditionalSourcesSelect.disabled = !assetsSelected;
+          if (assetsSelected) {
+            dataSourceSubtitle.textContent = 'Select one or more sources from each category for comparison.';
+            sourceDisabledOverlay.style.display = 'none';
+          } else {
+            dataSourceSubtitle.textContent = 'Please select an asset pair first to activate source selection.';
+            sourceDisabledOverlay.style.display = 'block';
+          }
+          compareButton.disabled = !assetsSelected;
+        }
+        baseAssetSelect.addEventListener('change', checkAssetSelection);
+        quoteAssetSelect.addEventListener('change', checkAssetSelection);
+        // Initially call to set the correct state
+        checkAssetSelection();
+      </script>
+    </body></html>
