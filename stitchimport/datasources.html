@@ -1,0 +1,216 @@
+<html><head>
+    <meta charset="utf-8"/>
+    <link crossorigin="" href="https://fonts.gstatic.com/" rel="preconnect"/>
+    <link as="style" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Inter%3Awght%40400%3B500%3B700%3B900&amp;family=Noto+Sans%3Awght%40400%3B500%3B700%3B900" onload="this.rel='stylesheet'" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+    <title>Oracle Beat - Data Sources</title>
+    <link href="data:image/x-icon;base64," rel="icon" type="image/x-icon"/>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <style>
+        .merit-icon {
+          font-variation-settings: "FILL" 1, "wght" 700, "GRAD" 0, "opsz" 24;
+        }
+      </style>
+    </head>
+    <body class="bg-gray-100" style="font-family: Inter, 'Noto Sans', sans-serif">
+    <div class="relative flex size-full min-h-screen flex-col group/design-root overflow-x-hidden">
+    <div class="layout-container flex h-full grow flex-col">
+        <header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-slate-200 px-6 sm:px-10 py-4 bg-white shadow-sm sticky top-0 z-50">
+            <a class="flex items-center gap-3 text-slate-900 hover:text-blue-600 transition-colors" href="/">
+            <div class="size-8 text-blue-600">
+            <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+            <path d="M13.8261 30.5736C16.7203 29.8826 20.2244 29.4783 24 29.4783C27.7756 29.4783 31.2797 29.8826 34.1739 30.5736C36.9144 31.2278 39.9967 32.7669 41.3563 33.8352L24.8486 7.36089C24.4571 6.73303 23.5429 6.73303 23.1514 7.36089L6.64374 33.8352C8.00331 32.7669 11.0856 31.2278 13.8261 30.5736Z" fill="currentColor"></path>
+            <path clip-rule="evenodd" d="M39.998 35.764C39.9944 35.7463 39.9875 35.7155 39.9748 35.6706C39.9436 35.5601 39.8949 35.4259 39.8346 35.2825C39.8168 35.2403 39.7989 35.1993 39.7813 35.1602C38.5103 34.2887 35.9788 33.0607 33.7095 32.5189C30.9875 31.8691 27.6413 31.4783 24 31.4783C20.3587 31.4783 17.0125 31.8691 14.2905 32.5189C12.0012 33.0654 9.44505 34.3104 8.18538 35.1832C8.17384 35.2075 8.16216 35.233 8.15052 35.2592C8.09919 35.3751 8.05721 35.4886 8.02977 35.589C8.00356 35.6848 8.00039 35.7333 8.00004 35.7388C8.00004 35.739 8 35.7393 8.00004 35.7388C8.00004 35.7641 8.0104 36.0767 8.68485 36.6314C9.34546 37.1746 10.4222 37.7531 11.9291 38.2772C14.9242 39.319 19.1919 40 24 40C28.8081 40 33.0758 39.319 36.0709 38.2772C37.5778 37.7531 38.6545 37.1746 39.3151 36.6314C39.9006 36.1499 39.9857 35.8511 39.998 35.764ZM4.95178 32.7688L21.4543 6.30267C22.6288 4.4191 25.3712 4.41909 26.5457 6.30267L43.0534 32.777C43.0709 32.8052 43.0878 32.8338 43.104 32.8629L41.3563 33.8352C43.104 32.8629 43.1038 32.8626 43.104 32.8629L43.1051 32.865L43.1065 32.8675L43.1101 32.8739L43.1199 32.8918C43.1276 32.906 43.1377 32.9246 43.1497 32.9473C43.1738 32.9925 43.2062 33.0545 43.244 33.1299C43.319 33.2792 43.4196 33.489 43.5217 33.7317C43.6901 34.1321 44 34.9311 44 35.7391C44 37.4427 43.003 38.7775 41.8558 39.7209C40.6947 40.6757 39.1354 41.4464 37.385 42.0552C33.8654 43.2794 29.133 44 24 44C18.867 44 14.1346 43.2794 10.615 42.0552C8.86463 41.4464 7.30529 40.6757 6.14419 39.7209C4.99695 38.7775 3.99999 37.4427 3.99999 35.7391C3.99999 34.8725 4.29264 34.0922 4.49321 33.6393C4.60375 33.3898 4.71348 33.1804 4.79687 33.0311C4.83898 32.9556 4.87547 32.8935 4.9035 32.8471C4.91754 32.8238 4.92954 32.8043 4.93916 32.7889L4.94662 32.777L4.95178 32.7688ZM35.9868 29.004L24 9.77997L12.0131 29.004C12.4661 28.8609 12.9179 28.7342 13.3617 28.6282C16.4281 27.8961 20.0901 27.4783 24 27.4783C27.9099 27.4783 31.5719 27.8961 34.6383 28.6282C35.082 28.7342 35.5339 28.8609 35.9868 29.004Z" fill="currentColor" fill-rule="evenodd"></path>
+            </svg>
+            </div>
+            <h1 class="text-xl font-bold leading-tight tracking-tight text-slate-900">Oracle Beat</h1>
+            </a>
+            <div class="flex flex-1 justify-end items-center gap-4 sm:gap-6">
+            <nav class="hidden sm:flex items-center gap-6">
+            <a class="text-slate-700 hover:text-blue-600 text-sm font-medium leading-normal transition-colors" href="#">Overview</a>
+            <a class="text-slate-700 hover:text-blue-600 text-sm font-medium leading-normal transition-colors" href="#">Deviation Analysis</a>
+            <a class="text-slate-700 hover:text-blue-600 text-sm font-medium leading-normal transition-colors" href="#">Data Sources</a>
+            <a class="text-slate-700 hover:text-blue-600 text-sm font-medium leading-normal transition-colors" href="#">Social Feedback</a>
+            </nav>
+            <div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 border border-slate-200" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDHW_abw3rItwLjo3Um4KZfT9Jlck9plVsWp0bxae_QG-kcFNLz2xGQc-coKJZWJq1r8hzgwf7DWH6YJ-fHf884XGQOGEDM4VjdsVFhO65HLU83xi_ITpbc_B4Pw-eRkqyRWOYuoy8q8ya4fMOQch1NM5uNe3EheZbRxkt4A8YqjM-nq5EmJpt_13XQVwFT6BdSaJsJlHBF2Z9ZJ2wfb2fUpIKSvrIDxaWQ43BskpuW-SYAOu13USVVbL07quPLAMc-BJw8UWdujTDw");'></div>
+            </div>
+            </header>
+    <main class="px-4 sm:px-10 lg:px-20 xl:px-40 flex flex-1 flex-col py-8">
+    <div class="layout-content-container flex flex-col max-w-7xl w-full mx-auto">
+    <div class="mb-8 px-4">
+    <h2 class="text-gray-900 text-3xl sm:text-4xl font-bold tracking-tight">Data Sources</h2>
+    <p class="text-gray-600 text-base sm:text-lg font-normal leading-relaxed mt-2">
+                  Explore the data sources that power Oracle Beat's real-time and historical price comparisons.
+                </p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 p-4">
+    <div class="bg-white rounded-xl shadow-lg overflow-hidden transition-all hover:shadow-xl flex flex-col group">
+    <div class="w-full h-48 bg-gray-200 flex items-center justify-center p-4">
+    <img alt="Pyth Network Logo" class="max-h-full max-w-full object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC8syUrlohvS07jKMK5_MsIHfGAZSXTrVnOQhoy1KQ-QL9_FymQNWkD9OPUJ-S7G-5UUT3CTP8bv-g_4aEIumx23_dLXdmyz_DBh6BGZxWYi8cNCT1-I3Bn7a5Xk55cxbgT7ziErWIr4HxT_aRoJ_WhTBu8NbgpVi1MiZFomrM3ecBObjpbzClHopBGMGELEE_NFdUm8yQ8HFASGmgVHijV72GSjp5gZpWGB2TSAs4qrhX7GlFP0OgGfkmvwwL_Hrkcz02em49_wzur"/>
+    </div>
+    <div class="p-5 flex flex-col flex-grow">
+    <div class="flex items-center justify-between mb-3">
+    <h3 class="text-gray-900 text-xl font-semibold tracking-tight">Pyth Network</h3>
+    <span class="inline-flex items-center px-3 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
+    <span class="material-icons text-sm mr-1"></span>Active
+                      </span>
+    </div>
+    <p class="text-gray-600 text-sm mb-1">Web3 Oracle</p>
+    <div class="flex items-center text-gray-500 text-sm mt-auto pt-3">
+    <span class="material-icons merit-icon text-yellow-500 mr-1 text-base">star</span>
+                      150 Merits
+                    </div>
+    </div>
+    </div>
+    <div class="bg-white rounded-xl shadow-lg overflow-hidden transition-all hover:shadow-xl flex flex-col group">
+    <div class="w-full h-48 bg-gray-200 flex items-center justify-center p-4">
+    <img alt="Pyth Network Logo" class="max-h-full max-w-full object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDSqYTBFaCTXM7iNP277xe3x9j6Jdd8CvJYLnE-lQSDzAqx7gi6XAx7bOrGc5q-C4EsZsrsy-A1vLD8NrfRDo44oqczTzgeRB-avMKUeAsHK3_cF6X92ZoCj4hj7SYjYVnPB4hx2Swcd774TKCR8V9a_WL2i7XoDcl0fxbvz73hfb5F_pcCI6DID9b3K3s4drmS57hywJrbuqV3wv9ys39e10G7yXoA3QsQh78_-oq-66K7qSIE_49Jqv7I5N1QdxvEKr6eYQZI6Sdv"/>
+    </div>
+    <div class="p-5 flex flex-col flex-grow">
+    <div class="flex items-center justify-between mb-3">
+    <h3 class="text-gray-900 text-xl font-semibold tracking-tight">Pyth Onchain Ethereum L1</h3>
+    <span class="inline-flex items-center px-3 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800"> Active </span>
+    </div>
+    <p class="text-gray-600 text-sm mb-1">Web3 Oracle</p>
+    <div class="flex items-center text-gray-500 text-sm mt-auto pt-3">
+    <span class="material-icons merit-icon text-yellow-500 mr-1 text-base">star</span>
+                      140 Merits
+                    </div>
+    </div>
+    </div>
+    <div class="bg-white rounded-xl shadow-lg overflow-hidden transition-all hover:shadow-xl flex flex-col group">
+    <div class="w-full h-48 bg-gray-200 flex items-center justify-center p-4">
+    <img alt="Chainlink Logo" class="max-h-full max-w-full object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCBMtuzSXcGlwd4DpDiggFTIjV0DWX9Qr_aBEfTV3EWHSzN_cbHj3-ZwffZgmphUvB5mKrmcM-9zkW1BYIi6czLKyHkGZvy36yqKY3mt3Tm_dgOhdaxRJmO_knghXOXgV8xinIST4Or-KQuIFbvEiOM-J_cAUQNy1C8SsetzGEpnOvDgD9gvULgqyFYNDuq3cmCgvbZWs4y8LXgvqqCI7mKbS8kqTWjwsbhKwyYXby8GYOKqHdZoUWo506cYsVt6H0_bZmoVQStPqp-"/>
+    </div>
+    <div class="p-5 flex flex-col flex-grow">
+    <div class="flex items-center justify-between mb-3">
+    <h3 class="text-gray-900 text-xl font-semibold tracking-tight">Chainlink Ethereum L1</h3>
+    <span class="inline-flex items-center px-3 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800">
+    <span class="material-icons text-sm mr-1"></span>Active
+                      </span>
+    </div>
+    <p class="text-gray-600 text-sm mb-1">Web3 Oracle</p>
+    <div class="flex items-center text-gray-500 text-sm mt-auto pt-3">
+    <span class="material-icons merit-icon text-yellow-500 mr-1 text-base">star</span>
+                      120 Merits
+                    </div>
+    </div>
+    </div>
+    <div class="bg-white rounded-xl shadow-lg overflow-hidden transition-all hover:shadow-xl flex flex-col group">
+    <div class="w-full h-48 bg-gray-200 flex items-center justify-center p-4">
+    <img alt="Tellor Logo" class="max-h-full max-w-full object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA0TGkwGN_2hA_LCfD9-4jpiEgu51ZVa34Uno39cS619hpaNYRqxRDa-YHpSzzbLiTPSY1mw6FZiyTHeDjc8xxFp68PzQQ-GxRO_99lZHyNS5HpkLz8SCerI8JeNYzXzaK8VqSURhR7fJdtzPI_5jlDFLOyJZEq9GcLol5JoZI9hSEulqE0qyjiStIDBxA_Sk2SzCPAOK0htY13y06Abql3gEuX8B4ZrH8w92YT3CQZaZu-JSL3zi34ojS30FrY8v3ecHDZ2waW30fj"/>
+    </div>
+    <div class="p-5 flex flex-col flex-grow">
+    <div class="flex items-center justify-between mb-3">
+    <h3 class="text-gray-900 text-xl font-semibold tracking-tight">Tellor</h3>
+    <span class="inline-flex items-center px-3 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800"> Active </span>
+    </div>
+    <p class="text-gray-600 text-sm mb-1">Web3 Oracle</p>
+    <div class="flex items-center text-gray-500 text-sm mt-auto pt-3">
+    <span class="material-icons merit-icon text-yellow-500 mr-1 text-base">star</span>
+                      110 Merits
+                    </div>
+    </div>
+    </div>
+    <div class="bg-white rounded-xl shadow-lg overflow-hidden transition-all hover:shadow-xl flex flex-col group">
+    <div class="w-full h-48 bg-gray-200 flex items-center justify-center p-4">
+    <img alt="Redstone Logo" class="max-h-full max-w-full object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB94G32QILxtbJUDAw_1TvPxgDw3h_x8-IgZk7g173ccwI8O-6Ks9JpDUtNWXLPtIiyVT-sh7NiPT9JGbWNbI1_NNhxZkuW2hjY7Pg1ZPa7i0sfZXa1BtIhdjAk03HhL6XVKCfNT3aVCEJIUToNog-1gjE70wZVF-stGM5OWVzGHzEoikR87oYmJdUh304MOAGFuAaYT71zd0Y98r2oOoYdP94rW5H_W6LzwuVP-aFyFkb83b2EWj4RzdHZzMeqHP5-ydI8ybxT-lTc"/>
+    </div>
+    <div class="p-5 flex flex-col flex-grow">
+    <div class="flex items-center justify-between mb-3">
+    <h3 class="text-gray-900 text-xl font-semibold tracking-tight">Redstone</h3>
+    <span class="inline-flex items-center px-3 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800"> Active </span>
+    </div>
+    <p class="text-gray-600 text-sm mb-1">Web3 Oracle</p>
+    <div class="flex items-center text-gray-500 text-sm mt-auto pt-3">
+    <span class="material-icons merit-icon text-yellow-500 mr-1 text-base">star</span>
+                      100 Merits
+                    </div>
+    </div>
+    </div>
+    <div class="bg-white rounded-xl shadow-lg overflow-hidden transition-all hover:shadow-xl flex flex-col group">
+    <div class="w-full h-48 bg-gray-200 flex items-center justify-center p-4">
+    <img alt="ExchangeRate API Logo" class="max-h-full max-w-full object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC2xvn00LeZut2fkd6zsGhV2BNSSdG57PLJJiazWhQrvl871su-zBL_lfzb0Z18_JvRJiN5V4WVoH0X4DjaoA1epPbPH8OvD-M4sLJaGFVj-esWZRla8hca5AAb2WK1W_m3bPgEosLFpZbR3DDq_3eVl3Ygk9fBY8KZpiMVwaQmkPHuG74sSWZoRQorPm9Je5uH0eLh6LOr5bUYduOljVTbrWU-LmL1DwByed8ACD-Emo1I5hL-XOZRjev-su1vXwC0VyxUw2IfGiW4"/>
+    </div>
+    <div class="p-5 flex flex-col flex-grow">
+    <div class="flex items-center justify-between mb-3">
+    <h3 class="text-gray-900 text-xl font-semibold tracking-tight">ExchangeRate API</h3>
+    <span class="inline-flex items-center px-3 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800"> Active </span>
+    </div>
+    <p class="text-gray-600 text-sm mb-1">Traditional Source</p>
+    <div class="flex items-center text-gray-500 text-sm mt-auto pt-3">
+    <span class="material-icons merit-icon text-yellow-500 mr-1 text-base">star</span>
+                      90 Merits
+                    </div>
+    </div>
+    </div>
+    <div class="bg-white rounded-xl shadow-lg overflow-hidden transition-all hover:shadow-xl flex flex-col group">
+    <div class="w-full h-48 bg-gray-200 flex items-center justify-center p-4">
+    <img alt="Bloomberg Logo" class="max-h-full max-w-full object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC8uzzmtjpB5P8963rbhMRkyOBrQ2wX-BbdMj7YrZOnD-MVygMFDf_0U11dkLs9StJ7F_UrE6ObEEaGvPMIKsRidw0V1SP9PFWfSZV4phhVSc_0CXhJHC05c1w6cqWyEO6IJs5TBi5zPJoZHl1jqbRoqG-JOKBQ3bM0AEHCeXOv1CsUO8vw50N8C_S8dPFs1cV3QtgmP5HsjmrZFoHwf1huikfxWAXuWj9Pt-pco_uro8SwXJx1IJJ1vZk8lhwmLo5Vx--vWNFn2_2a"/>
+    </div>
+    <div class="p-5 flex flex-col flex-grow">
+    <div class="flex items-center justify-between mb-3">
+    <h3 class="text-gray-900 text-xl font-semibold tracking-tight">Bloomberg</h3>
+    <span class="inline-flex items-center px-3 py-0.5 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800"> Maintenance </span>
+    </div>
+    <p class="text-gray-600 text-sm mb-1">Traditional Source</p>
+    <div class="flex items-center text-gray-500 text-sm mt-auto pt-3">
+    <span class="material-icons merit-icon text-yellow-500 mr-1 text-base">star</span>
+                      85 Merits
+                    </div>
+    </div>
+    </div>
+    <div class="bg-white rounded-xl shadow-lg overflow-hidden transition-all hover:shadow-xl flex flex-col group">
+    <div class="w-full h-48 bg-gray-200 flex items-center justify-center p-4">
+    <img alt="Reuters Logo" class="max-h-full max-w-full object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCThy_4vyJoSp_g8XUueQBd5YAH4ClqUgYZQkpqHyV9OR9L5SvR0CPDNV9QPJsj4tzSSsmpZ6XyNE0OVLtTSk_Zdy9uK94x9_9IBq9YoXWHnOQY62p-2LT7GUM2tPAl1oWJmG3p-87eFwvTte5pBfr9CZ6Tpr70sGv7CWGNlXOnZBPO4pgrqeFXmgeIDVZkgmV6LCO0LiQLWc6LqciNGRA319bmo1m19j_t04jMesWXiLWkGppf9ssCp52prSPR2O1C_C_5jdUxVx66"/>
+    </div>
+    <div class="p-5 flex flex-col flex-grow">
+    <div class="flex items-center justify-between mb-3">
+    <h3 class="text-gray-900 text-xl font-semibold tracking-tight">Reuters</h3>
+    <span class="inline-flex items-center px-3 py-0.5 rounded-full text-xs font-medium bg-green-100 text-green-800"> Active </span>
+    </div>
+    <p class="text-gray-600 text-sm mb-1">Traditional Source</p>
+    <div class="flex items-center text-gray-500 text-sm mt-auto pt-3">
+    <span class="material-icons merit-icon text-yellow-500 mr-1 text-base">star</span>
+                      80 Merits
+                    </div>
+    </div>
+    </div>
+    <div class="bg-white rounded-xl shadow-lg overflow-hidden transition-all hover:shadow-xl flex flex-col group">
+    <div class="w-full h-48 bg-gray-200 flex items-center justify-center p-4">
+    <img alt="Yahoo Finance Logo" class="max-h-full max-w-full object-contain" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA8X1aXaIOkVNDQIKk5xRr1Ls_2HsMISymOGn7sqlQU2fJoZMnW4OhDnptwaLlsgiJFr52p3M9JQodcD-saqbOHbM6V9xqvWy_Q6dfcc0EPyLR06mlbIQuFZCHTrfU9am_txJR6TAqUTfaFVkRnRQq5Z0gy3wDVjqtEwXXMFsVkbNi2ZJw2jYfm1QVquWz9iIMfwn6n7hNOLgzpNgNYveUhNdOGZ36Eq1uJiXdNAc6XyoYNorRI2YbXgoADmyiqdPNGD4K9JyqXwbha"/>
+    </div>
+    <div class="p-5 flex flex-col flex-grow">
+    <div class="flex items-center justify-between mb-3">
+    <h3 class="text-gray-900 text-xl font-semibold tracking-tight">Yahoo Finance</h3>
+    <span class="inline-flex items-center px-3 py-0.5 rounded-full text-xs font-medium bg-red-100 text-red-800"> Inactive </span>
+    </div>
+    <p class="text-gray-600 text-sm mb-1">Traditional Source</p>
+    <div class="flex items-center text-gray-500 text-sm mt-auto pt-3">
+    <span class="material-icons merit-icon text-yellow-500 mr-1 text-base">star</span>
+                      70 Merits
+                    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </main>
+
+    <footer class="mt-auto py-8 px-4 sm:px-10 border-t border-slate-200 bg-slate-800 text-slate-400">
+        <div class="max-w-6xl mx-auto text-center">
+        <a class="flex items-center justify-center gap-2 mb-4 text-slate-200 hover:text-white transition-colors" href="/">
+        <div class="size-7">
+        <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+        <path d="M13.8261 30.5736C16.7203 29.8826 20.2244 29.4783 24 29.4783C27.7756 29.4783 31.2797 29.8826 34.1739 30.5736C36.9144 31.2278 39.9967 32.7669 41.3563 33.8352L24.8486 7.36089C24.4571 6.73303 23.5429 6.73303 23.1514 7.36089L6.64374 33.8352C8.00331 32.7669 11.0856 31.2278 13.8261 30.5736Z" fill="currentColor"></path>
+        <path clip-rule="evenodd" d="M39.998 35.764C39.9944 35.7463 39.9875 35.7155 39.9748 35.6706C39.9436 35.5601 39.8949 35.4259 39.8346 35.2825C39.8168 35.2403 39.7989 35.1993 39.7813 35.1602C38.5103 34.2887 35.9788 33.0607 33.7095 32.5189C30.9875 31.8691 27.6413 31.4783 24 31.4783C20.3587 31.4783 17.0125 31.8691 14.2905 32.5189C12.0012 33.0654 9.44505 34.3104 8.18538 35.1832C8.17384 35.2075 8.16216 35.233 8.15052 35.2592C8.09919 35.3751 8.05721 35.4886 8.02977 35.589C8.00356 35.6848 8.00039 35.7333 8.00004 35.7388C8.00004 35.739 8 35.7393 8.00004 35.7388C8.00004 35.7641 8.0104 36.0767 8.68485 36.6314C9.34546 37.1746 10.4222 37.7531 11.9291 38.2772C14.9242 39.319 19.1919 40 24 40C28.8081 40 33.0758 39.319 36.0709 38.2772C37.5778 37.7531 38.6545 37.1746 39.3151 36.6314C39.9006 36.1499 39.9857 35.8511 39.998 35.764ZM4.95178 32.7688L21.4543 6.30267C22.6288 4.4191 25.3712 4.41909 26.5457 6.30267L43.0534 32.777C43.0709 32.8052 43.0878 32.8338 43.104 32.8629L41.3563 33.8352C43.104 32.8629 43.1038 32.8626 43.104 32.8629L43.1051 32.865L43.1065 32.8675L43.1101 32.8739L43.1199 32.8918C43.1276 32.906 43.1377 32.9246 43.1497 32.9473C43.1738 32.9925 43.2062 33.0545 43.244 33.1299C43.319 33.2792 43.4196 33.489 43.5217 33.7317C43.6901 34.1321 44 34.9311 44 35.7391C44 37.4427 43.003 38.7775 41.8558 39.7209C40.6947 40.6757 39.1354 41.4464 37.385 42.0552C33.8654 43.2794 29.133 44 24 44C18.867 44 14.1346 43.2794 10.615 42.0552C8.86463 41.4464 7.30529 40.6757 6.14419 39.7209C4.99695 38.7775 3.99999 37.4427 3.99999 35.7391C3.99999 34.8725 4.29264 34.0922 4.49321 33.6393C4.60375 33.3898 4.71348 33.1804 4.79687 33.0311C4.83898 32.9556 4.87547 32.8935 4.9035 32.8471C4.91754 32.8238 4.92954 32.8043 4.93916 32.7889L4.94662 32.777L4.95178 32.7688ZM35.9868 29.004L24 9.77997L12.0131 29.004C12.4661 28.8609 12.9179 28.7342 13.3617 28.6282C16.4281 27.8961 20.0901 27.4783 24 27.4783C27.9099 27.4783 31.5719 27.8961 34.6383 28.6282C35.082 28.7342 35.5339 28.8609 35.9868 29.004Z" fill="currentColor" fill-rule="evenodd"></path>
+        </svg>
+        </div>
+        <span class="text-lg font-semibold">Oracle Beat</span>
+        </a>
+        <p class="text-sm">2025 Oracle Beat. Made with ❤️ during <a href="https://ethprague.com/" class="text-blue-400 hover:text-blue-300">ETH Prague Hackathon</a> by <a href="https://www.meetup.com/beerfi/" class="text-blue-400 hover:text-blue-300">BeerFi builders community</a>.</p>
+        </div>
+        </footer>
+
+    </div>
+    </div>
+    </body></html>
