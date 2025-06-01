@@ -77,7 +77,10 @@ export default function DeviationPage() {
         percentage: 0.0289,
         absolute: 0.000313,
       },
-      timestamp: new Date().toLocaleString(),
+      timestamp: new Date()
+        .toISOString()
+        .replace("T", " ")
+        .replace(/\.\d+Z$/, " UTC"),
     });
     setIsModalOpen(true);
   };
