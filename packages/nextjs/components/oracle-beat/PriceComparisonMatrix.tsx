@@ -14,9 +14,15 @@ interface PriceComparisonMatrixProps {
   assetPair: string;
   lastUpdated: string;
   priceData: PriceData[];
+  onDeviationHunterClick: () => void;
 }
 
-const PriceComparisonMatrix: FC<PriceComparisonMatrixProps> = ({ assetPair, lastUpdated, priceData }) => {
+const PriceComparisonMatrix: FC<PriceComparisonMatrixProps> = ({
+  assetPair,
+  lastUpdated,
+  priceData,
+  onDeviationHunterClick,
+}) => {
   return (
     <div className="bg-base-100 shadow-lg rounded-lg p-6 mb-8">
       <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6">
@@ -26,7 +32,10 @@ const PriceComparisonMatrix: FC<PriceComparisonMatrixProps> = ({ assetPair, last
             {assetPair} - Last updated: {lastUpdated}
           </p>
         </div>
-        <button className="mt-4 sm:mt-0 inline-flex items-center gap-2.5 px-3 py-2 bg-[#EBF3FF] hover:bg-[#E2EDFF] text-[#0C77F2] font-medium rounded-lg transition-colors">
+        <button
+          className="mt-4 sm:mt-0 inline-flex items-center gap-2.5 px-3 py-2 bg-[#EBF3FF] hover:bg-[#E2EDFF] text-[#0C77F2] font-medium rounded-lg transition-colors"
+          onClick={onDeviationHunterClick}
+        >
           <span className="material-icons !text-lg">crisis_alert</span>
           <span>Deviation Hunter</span>
           <span className="bg-[#0C77F2] text-white text-xs font-bold px-2 py-0.5 rounded-full">Earn Merits</span>

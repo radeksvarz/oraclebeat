@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import DeviationModal from "~~/components/deviation-hunter/DeviationModal";
 import HistoricalSummary from "~~/components/oracle-beat/HistoricalSummary";
 import PriceChart from "~~/components/oracle-beat/PriceChart";
 import PriceComparisonMatrix from "~~/components/oracle-beat/PriceComparisonMatrix";
@@ -9,6 +10,16 @@ export default function DeviationPage() {
   const [selectedAssetPair, setSelectedAssetPair] = useState("EUR/USD");
   const [selectedDataSources, setSelectedDataSources] = useState<string[]>(["sourceA", "sourceB", "sourceC"]);
   const [baseSource, setBaseSource] = useState("sourceA");
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [deviationData, setDeviationData] = useState<{
+    assetPair: string;
+    sources: string;
+    deviation: {
+      percentage: number;
+      absolute: number;
+    };
+    timestamp: string;
+  } | null>(null);
 
   // Mock data for demonstration
   const mockPriceData = [
@@ -56,6 +67,20 @@ export default function DeviationPage() {
       avgDeviationPerc: -0.0164,
     },
   ];
+
+  const handleDeviationHunterClick = () => {
+    // For demonstration, we'll use mock data
+    setDeviationData({
+      assetPair: selectedAssetPair,
+      sources: "Pyth Network vs Pyth Onchain Ethereum L1",
+      deviation: {
+        percentage: 0.0289,
+        absolute: 0.000313,
+      },
+      timestamp: new Date().toLocaleString(),
+    });
+    setIsModalOpen(true);
+  };
 
   return (
     <main className="flex flex-1 justify-center py-8 px-4 sm:px-6 lg:px-8 bg-base-200">
@@ -127,7 +152,12 @@ export default function DeviationPage() {
           </div>
         </div>
 
-        <PriceComparisonMatrix assetPair={selectedAssetPair} lastUpdated="Just now" priceData={mockPriceData} />
+        <PriceComparisonMatrix
+          assetPair={selectedAssetPair}
+          lastUpdated="Just now"
+          priceData={mockPriceData}
+          onDeviationHunterClick={handleDeviationHunterClick}
+        />
 
         <PriceChart
           assetPair={selectedAssetPair}
@@ -139,6 +169,10 @@ export default function DeviationPage() {
         />
 
         <HistoricalSummary data={mockHistoricalData} />
+
+        {deviationData && (
+          <DeviationModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} data={deviationData} />
+        )}
       </div>
     </main>
   );
