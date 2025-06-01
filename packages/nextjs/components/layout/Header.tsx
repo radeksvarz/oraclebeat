@@ -43,9 +43,9 @@ const Header = () => {
             Deviation Analysis
           </Link>
           <Link
-            href="/sources"
+            href="/data-sources"
             className={`text-sm font-medium leading-normal transition-colors ${
-              pathname === "/sources" ? "text-blue-600" : "text-slate-700 hover:text-blue-600"
+              pathname === "/data-sources" ? "text-blue-600" : "text-slate-700 hover:text-blue-600"
             }`}
           >
             Data Sources
