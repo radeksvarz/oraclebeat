@@ -73,7 +73,7 @@ export default function DeviationPage() {
               Asset Pair
             </label>
             <select
-              className="select select-bordered w-full bg-base-100 text-base-content"
+              className="select select-bordered w-full bg-base-100 text-base-content border-2 border-base-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary"
               id="assetPair"
               value={selectedAssetPair}
               onChange={e => setSelectedAssetPair(e.target.value)}
@@ -90,25 +90,31 @@ export default function DeviationPage() {
               Data Sources
             </label>
             <select
-              className="select select-bordered w-full bg-base-100 text-base-content"
+              className="select select-bordered w-full bg-base-100 text-base-content border-2 border-base-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary h-[120px] [&>option]:py-2"
               id="dataSources"
               multiple
               value={selectedDataSources}
               onChange={e => setSelectedDataSources(Array.from(e.target.selectedOptions, option => option.value))}
             >
-              <option value="sourceA">Pyth Network</option>
-              <option value="sourceB">Pyth Onchain Ethereum L1</option>
-              <option value="sourceC">ExchangeRate API</option>
+              <option value="sourceA" className="py-2">
+                Pyth Network
+              </option>
+              <option value="sourceB" className="py-2">
+                Pyth Onchain Ethereum L1
+              </option>
+              <option value="sourceC" className="py-2">
+                ExchangeRate API
+              </option>
             </select>
-            <p className="text-xs text-base-content/60">Select multiple sources to compare.</p>
+            <p className="text-xs text-base-content/60">Select multiple sources to compare</p>
           </div>
 
           <div className="flex flex-col gap-2">
             <label className="text-sm font-semibold text-base-content/80" htmlFor="baseSource">
-              Base Source for Deviation
+              Base Source for Deviation Check
             </label>
             <select
-              className="select select-bordered w-full bg-base-100 text-base-content"
+              className="select select-bordered w-full bg-base-100 text-base-content border-2 border-base-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary"
               id="baseSource"
               value={baseSource}
               onChange={e => setBaseSource(e.target.value)}
