@@ -56,7 +56,7 @@ const Header = () => {
               pathname === "/social" ? "text-blue-600" : "text-slate-700 hover:text-blue-600"
             }`}
           >
-            Social Feedback
+            Social Layer Feedback
           </Link>
         </nav>
         <RainbowKitCustomConnectButton />
