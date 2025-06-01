@@ -27,14 +27,22 @@ export const MeritBalance = () => {
             Authorization: "PE5GNPK911JUNTI65357CHGRGL7KIPPA",
           },
         });
+
+        if (response.status === 404) {
+          // User not found means they have 0 merits
+          setBalance("0");
+          return;
+        }
+
         if (!response.ok) {
           throw new Error("Failed to fetch merit balance");
         }
+
         const data: MeritBalanceResponse = await response.json();
         setBalance(data.total_merits);
       } catch (error) {
         console.error("Error fetching merit balance:", error);
-        setBalance(null);
+        // Don't set balance to null on error, keep the previous value
       } finally {
         setIsLoading(false);
       }
