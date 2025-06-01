@@ -17,63 +17,63 @@ const dataSources: DataSource[] = [
     type: "Web3 Oracle",
     status: "active",
     merits: 150,
-    logo: "https://lh3.googleusercontent.com/aida-public/AB6AXuC8syUrlohvS07jKMK5_MsIHfGAZSXTrVnOQhoy1KQ-QL9_FymQNWkD9OPUJ-S7G-5UUT3CTP8bv-g_4aEIumx23_dLXdmyz_DBh6BGZxWYi8cNCT1-I3Bn7a5Xk55cxbgT7ziErWIr4HxT_aRoJ_WhTBu8NbgpVi1MiZFomrM3ecBObjpbzClHopBGMGELEE_NFdUm8yQ8HFASGmgVHijV72GSjp5gZpWGB2TSAs4qrhX7GlFP0OgGfkmvwwL_Hrkcz02em49_wzur",
+    logo: "/logos/pyth-network.png",
   },
   {
     name: "Pyth Onchain Ethereum L1",
     type: "Web3 Oracle",
     status: "active",
     merits: 140,
-    logo: "https://lh3.googleusercontent.com/aida-public/AB6AXuDSqYTBFaCTXM7iNP277xe3x9j6Jdd8CvJYLnE-lQSDzAqx7gi6XAx7bOrGc5q-C4EsZsrsy-A1vLD8NrfRDo44oqczTzgeRB-avMKUeAsHK3_cF6X92ZoCj4hj7SYjYVnPB4hx2Swcd774TKCR8V9a_WL2i7XoDcl0fxbvz73hfb5F_pcCI6DID9b3K3s4drmS57hywJrbuqV3wv9ys39e10G7yXoA3QsQh78_-oq-66K7qSIE_49Jqv7I5N1QdxvEKr6eYQZI6Sdv",
+    logo: "/logos/pyth-onchain.png",
   },
   {
     name: "Chainlink Ethereum L1",
     type: "Web3 Oracle",
     status: "active",
     merits: 120,
-    logo: "https://lh3.googleusercontent.com/aida-public/AB6AXuCBMtuzSXcGlwd4DpDiggFTIjV0DWX9Qr_aBEfTV3EWHSzN_cbHj3-ZwffZgmphUvB5mKrmcM-9zkW1BYIi6czLKyHkGZvy36yqKY3mt3Tm_dgOhdaxRJmO_knghXOXgV8xinIST4Or-KQuIFbvEiOM-J_cAUQNy1C8SsetzGEpnOvDgD9gvULgqyFYNDuq3cmCgvbZWs4y8LXgvqqCI7mKbS8kqTWjwsbhKwyYXby8GYOKqHdZoUWo506cYsVt6H0_bZmoVQStPqp-",
+    logo: "/logos/chainlink-logo.png",
   },
   {
     name: "Tellor",
     type: "Web3 Oracle",
     status: "active",
     merits: 110,
-    logo: "https://lh3.googleusercontent.com/aida-public/AB6AXuA0TGkwGN_2hA_LCfD9-4jpiEgu51ZVa34Uno39cS619hpaNYRqxRDa-YHpSzzbLiTPSY1mw6FZiyTHeDjc8xxFp68PzQQ-GxRO_99lZHyNS5HpkLz8SCerI8JeNYzXzaK8VqSURhR7fJdtzPI_5jlDFLOyJZEq9GcLol5JoZI9hSEulqE0qyjiStIDBxA_Sk2SzCPAOK0htY13y06Abql3gEuX8B4ZrH8w92YT3CQZaZu-JSL3zi34ojS30FrY8v3ecHDZ2waW30fj",
+    logo: "/logos/tellor.png",
   },
   {
     name: "Redstone",
     type: "Web3 Oracle",
     status: "active",
     merits: 100,
-    logo: "https://lh3.googleusercontent.com/aida-public/AB6AXuB94G32QILxtbJUDAw_1TvPxgDw3h_x8-IgZk7g173ccwI8O-6Ks9JpDUtNWXLPtIiyVT-sh7NiPT9JGbWNbI1_NNhxZkuW2hjY7Pg1ZPa7i0sfZXa1BtIhdjAk03HhL6XVKCfNT3aVCEJIUToNog-1gjE70wZVF-stGM5OWVzGHzEoikR87oYmJdUh304MOAGFuAaYT71zd0Y98r2oOoYdP94rW5H_W6LzwuVP-aFyFkb83b2EWj4RzdHZzMeqHP5-ydI8ybxT-lTc",
+    logo: "/logos/redstone.png",
   },
   {
     name: "ExchangeRate API",
     type: "Traditional Source",
     status: "active",
     merits: 90,
-    logo: "https://lh3.googleusercontent.com/aida-public/AB6AXuC2xvn00LeZut2fkd6zsGhV2BNSSdG57PLJJiazWhQrvl871su-zBL_lfzb0Z18_JvRJiN5V4WVoH0X4DjaoA1epPbPH8OvD-M4sLJaGFVj-esWZRla8hca5AAb2WK1W_m3bPgEosLFpZbR3DDq_3eVl3Ygk9fBY8KZpiMVwaQmkPHuG74sSWZoRQorPm9Je5uH0eLh6LOr5bUYduOljVTbrWU-LmL1DwByed8ACD-Emo1I5hL-XOZRjev-su1vXwC0VyxUw2IfGiW4",
+    logo: "/logos/exchangerate-api.png",
   },
   {
     name: "Bloomberg",
     type: "Traditional Source",
     status: "maintenance",
     merits: 85,
-    logo: "https://lh3.googleusercontent.com/aida-public/AB6AXuC8uzzmtjpB5P8963rbhMRkyOBrQ2wX-BbdMj7YrZOnD-MVygMFDf_0U11dkLs9StJ7F_UrE6ObEEaGvPMIKsRidw0V1SP9PFWfSZV4phhVSc_0CXhJHC05c1w6cqWyEO6IJs5TBi5zPJoZHl1jqbRoqG-JOKBQ3bM0AEHCeXOv1CsUO8vw50N8C_S8dPFs1cV3QtgmP5HsjmrZFoHwf1huikfxWAXuWj9Pt-pco_uro8SwXJx1IJJ1vZk8lhwmLo5Vx--vWNFn2_2a",
+    logo: "/logos/bloomberg.png",
   },
   {
     name: "Reuters",
     type: "Traditional Source",
     status: "active",
     merits: 80,
-    logo: "https://lh3.googleusercontent.com/aida-public/AB6AXuCThy_4vyJoSp_g8XUueQBd5YAH4ClqUgYZQkpqHyV9OR9L5SvR0CPDNV9QPJsj4tzSSsmpZ6XyNE0OVLtTSk_Zdy9uK94x9_9IBq9YoXWHnOQY62p-2LT7GUM2tPAl1oWJmG3p-87eFwvTte5pBfr9CZ6Tpr70sGv7CWGNlXOnZBPO4pgrqeFXmgeIDVZkgmV6LCO0LiQLWc6LqciNGRA319bmo1m19j_t04jMesWXiLWkGppf9ssCp52prSPR2O1C_C_5jdUxVx66",
+    logo: "/logos/reuters.png",
   },
   {
     name: "Yahoo Finance",
     type: "Traditional Source",
     status: "inactive",
     merits: 70,
-    logo: "https://lh3.googleusercontent.com/aida-public/AB6AXuA8X1aXaIOkVNDQIKk5xRr1Ls_2HsMISymOGn7sqlQU2fJoZMnW4OhDnptwaLlsgiJFr52p3M9JQodcD-saqbOHbM6V9xqvWy_Q6dfcc0EPyLR06mlbIQuFZCHTrfU9am_txJR6TAqUTfaFVkRnRQq5Z0gy3wDVjqtEwXXMFsVkbNi2ZJw2jYfm1QVquWz9iIMfwn6n7hNOLgzpNgNYveUhNdOGZ36Eq1uJiXdNAc6XyoYNorRI2YbXgoADmyiqdPNGD4K9JyqXwbha",
+    logo: "/logos/yahoo-finance.png",
   },
 ];
 
@@ -93,6 +93,7 @@ const DataSourceCard: FC<{ source: DataSource }> = ({ source }) => {
           src={source.logo}
           fill
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          unoptimized={source.logo.startsWith("http")}
         />
       </div>
       <div className="p-5 flex flex-col flex-grow">
