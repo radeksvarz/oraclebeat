@@ -2,6 +2,7 @@
 
 import { type FC } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 interface DataSource {
   name: string;
@@ -9,6 +10,7 @@ interface DataSource {
   status: "active" | "maintenance" | "inactive";
   merits: number;
   logo: string;
+  detailsPath?: string;
 }
 
 const dataSources: DataSource[] = [
@@ -25,6 +27,7 @@ const dataSources: DataSource[] = [
     status: "active",
     merits: 140,
     logo: "/logos/pyth-onchain.png",
+    detailsPath: "/data-sources/pyth-onchain",
   },
   {
     name: "Chainlink Ethereum L1",
@@ -84,8 +87,8 @@ const DataSourceCard: FC<{ source: DataSource }> = ({ source }) => {
     inactive: "bg-red-100 text-red-800",
   };
 
-  return (
-    <div className="bg-white rounded-xl shadow-lg overflow-hidden transition-all hover:shadow-xl flex flex-col group">
+  const CardContent = () => (
+    <>
       <div className="w-full h-48 bg-gray-200 flex items-center justify-center p-4 relative">
         <Image
           alt={`${source.name} Logo`}
@@ -113,6 +116,19 @@ const DataSourceCard: FC<{ source: DataSource }> = ({ source }) => {
           {source.merits} Merits
         </div>
       </div>
+    </>
+  );
+
+  return source.detailsPath ? (
+    <Link
+      href={source.detailsPath}
+      className="bg-white rounded-xl shadow-lg overflow-hidden transition-all hover:shadow-xl flex flex-col group"
+    >
+      <CardContent />
+    </Link>
+  ) : (
+    <div className="bg-white rounded-xl shadow-lg overflow-hidden transition-all hover:shadow-xl flex flex-col group">
+      <CardContent />
     </div>
   );
 };
