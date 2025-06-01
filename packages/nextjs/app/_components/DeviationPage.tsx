@@ -5,6 +5,10 @@ import DeviationModal from "~~/components/deviation-hunter/DeviationModal";
 import HistoricalSummary from "~~/components/oracle-beat/HistoricalSummary";
 import PriceChart from "~~/components/oracle-beat/PriceChart";
 import PriceComparisonMatrix from "~~/components/oracle-beat/PriceComparisonMatrix";
+import { usePythPrice } from "~~/hooks/oracle-beat/usePythPrice";
+
+// EUR/USD price feed ID from Pyth Network
+const EURUSD_PRICE_ID = "0xa995d00bb36a63cef7fd2c287dc105fc8f3d93779f062f09551b0af3e81ec30b";
 
 export default function DeviationPage() {
   const [selectedAssetPair, setSelectedAssetPair] = useState("EUR/USD");
@@ -21,11 +25,26 @@ export default function DeviationPage() {
     timestamp: string;
   } | null>(null);
 
+  const { data: pythPrice, isLoading: isPythLoading } = usePythPrice(EURUSD_PRICE_ID);
+
+  const handleDeviationHunterClick = () => {
+    setDeviationData({
+      assetPair: selectedAssetPair,
+      sources: "Pyth Network vs. ExchangeRate API",
+      deviation: {
+        percentage: 1.5,
+        absolute: 25.0,
+      },
+      timestamp: "2024-07-26 14:30 UTC",
+    });
+    setIsModalOpen(true);
+  };
+
   // Mock data for demonstration
   const mockPriceData = [
     {
       source: "Pyth Network",
-      price: 1.082534,
+      price: pythPrice?.price || 0,
       isBase: true,
     },
     {
@@ -67,23 +86,6 @@ export default function DeviationPage() {
       avgDeviationPerc: -0.0164,
     },
   ];
-
-  const handleDeviationHunterClick = () => {
-    // For demonstration, we'll use mock data
-    setDeviationData({
-      assetPair: selectedAssetPair,
-      sources: "Pyth Network vs Pyth Onchain Ethereum L1",
-      deviation: {
-        percentage: 0.0289,
-        absolute: 0.000313,
-      },
-      timestamp: new Date()
-        .toISOString()
-        .replace("T", " ")
-        .replace(/\.\d+Z$/, " UTC"),
-    });
-    setIsModalOpen(true);
-  };
 
   return (
     <main className="flex flex-1 justify-center py-8 px-4 sm:px-6 lg:px-8 bg-base-200">
@@ -157,14 +159,14 @@ export default function DeviationPage() {
 
         <PriceComparisonMatrix
           assetPair={selectedAssetPair}
-          lastUpdated="Just now"
+          lastUpdated={isPythLoading ? "Loading..." : "Just now"}
           priceData={mockPriceData}
           onDeviationHunterClick={handleDeviationHunterClick}
         />
 
         <PriceChart
           assetPair={selectedAssetPair}
-          currentPrice={1.082534}
+          currentPrice={pythPrice?.price || 1.082534}
           change24h={{
             value: 0.001534,
             percentage: 0.142,
