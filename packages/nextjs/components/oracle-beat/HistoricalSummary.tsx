@@ -1,5 +1,6 @@
 import { FC } from "react";
 import FormattedPrice from "./FormattedPrice";
+import { CONTRACTS, getBlockscoutContractUrl } from "~~/config/urls";
 
 interface HistoricalData {
   source: string;
@@ -65,8 +66,23 @@ const HistoricalSummary: FC<HistoricalSummaryProps> = ({ data }) => {
             {data.map((item, index) => (
               <tr key={index}>
                 <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-base-content table-col-source">
-                  {item.source}
-                  {item.isBase && " (Base)"}
+                  <div className="flex items-center gap-2">
+                    <span>
+                      {item.source}
+                      {item.isBase && " (Base)"}
+                    </span>
+                    {item.source === "Pyth Onchain Ethereum L1" && (
+                      <a
+                        href={getBlockscoutContractUrl("ETH_MAINNET", CONTRACTS.PYTH_ONCHAIN_ETH_L1)}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-primary hover:text-primary/80"
+                        title="View contract on Blockscout"
+                      >
+                        <span className="material-icons !text-base">open_in_new</span>
+                      </a>
+                    )}
+                  </div>
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-base-content/70 table-col-avg">
                   <FormattedPrice price={item.avgPrice} />

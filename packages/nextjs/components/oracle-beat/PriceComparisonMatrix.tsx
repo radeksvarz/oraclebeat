@@ -1,5 +1,6 @@
 import { FC } from "react";
 import FormattedPrice from "./FormattedPrice";
+import { CONTRACTS, getBlockscoutContractUrl } from "~~/config/urls";
 
 interface PriceData {
   source: string;
@@ -65,8 +66,23 @@ const PriceComparisonMatrix: FC<PriceComparisonMatrixProps> = ({ assetPair, last
             {priceData.map((data, index) => (
               <tr key={index}>
                 <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-base-content table-col-source">
-                  {data.source}
-                  {data.isBase && " (Base)"}
+                  <div className="flex items-center gap-2">
+                    <span>
+                      {data.source}
+                      {data.isBase && " (Base)"}
+                    </span>
+                    {data.source === "Pyth Onchain Ethereum L1" && (
+                      <a
+                        href={getBlockscoutContractUrl("ETH_MAINNET", CONTRACTS.PYTH_ONCHAIN_ETH_L1)}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-primary hover:text-primary/80"
+                        title="View contract on Blockscout"
+                      >
+                        <span className="material-icons !text-base">open_in_new</span>
+                      </a>
+                    )}
+                  </div>
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-base-content/70 table-col-price">
                   <FormattedPrice price={data.price} />
