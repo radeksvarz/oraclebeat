@@ -1,4 +1,5 @@
 import { FC } from "react";
+import FormattedPrice from "./FormattedPrice";
 
 interface HistoricalData {
   source: string;
@@ -68,19 +69,19 @@ const HistoricalSummary: FC<HistoricalSummaryProps> = ({ data }) => {
                   {item.isBase && " (Base)"}
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-base-content/70 table-col-avg">
-                  ${item.avgPrice.toFixed(2)}
+                  <FormattedPrice price={item.avgPrice} />
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-base-content/70 table-col-max">
-                  ${item.maxPrice.toFixed(2)}
+                  <FormattedPrice price={item.maxPrice} />
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-base-content/70 table-col-min">
-                  ${item.minPrice.toFixed(2)}
+                  <FormattedPrice price={item.minPrice} />
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-base-content/70 table-col-hist-dev-abs">
                   {item.isBase
                     ? "-"
                     : item.avgDeviationAbs
-                      ? (item.avgDeviationAbs > 0 ? "+" : "") + "$" + Math.abs(item.avgDeviationAbs).toFixed(2)
+                      ? (item.avgDeviationAbs > 0 ? "+" : "") + "$" + Math.abs(item.avgDeviationAbs).toFixed(6)
                       : "-"}
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm table-col-hist-dev-perc">
@@ -95,7 +96,7 @@ const HistoricalSummary: FC<HistoricalSummaryProps> = ({ data }) => {
                       }
                     >
                       {item.avgDeviationPerc
-                        ? (item.avgDeviationPerc > 0 ? "+" : "") + item.avgDeviationPerc.toFixed(2) + "%"
+                        ? (item.avgDeviationPerc > 0 ? "+" : "") + item.avgDeviationPerc.toFixed(4) + "%"
                         : "-"}
                     </span>
                   )}
@@ -112,9 +113,14 @@ const HistoricalSummary: FC<HistoricalSummaryProps> = ({ data }) => {
             display: none;
           }
         }
-        @container (max-width: 600px) {
+        @container (max-width: 640px) {
           .table-col-max,
           .table-col-min {
+            display: none;
+          }
+        }
+        @container (max-width: 480px) {
+          .table-col-avg {
             display: none;
           }
         }

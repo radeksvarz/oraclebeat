@@ -14,46 +14,46 @@ export default function DeviationPage() {
   const mockPriceData = [
     {
       source: "Pyth Network",
-      price: 1850.75,
+      price: 1.082534,
       isBase: true,
     },
     {
       source: "Pyth Onchain Ethereum L1",
-      price: 1853.2,
-      deviationAbs: 2.45,
-      deviationPerc: 0.13,
+      price: 1.082847,
+      deviationAbs: 0.000313,
+      deviationPerc: 0.0289,
     },
     {
       source: "ExchangeRate API",
-      price: 1848.9,
-      deviationAbs: -1.85,
-      deviationPerc: -0.1,
+      price: 1.082216,
+      deviationAbs: -0.000318,
+      deviationPerc: -0.0294,
     },
   ];
 
   const mockHistoricalData = [
     {
       source: "Pyth Network",
-      avgPrice: 1845.0,
-      maxPrice: 1855.0,
-      minPrice: 1835.0,
+      avgPrice: 1.082012,
+      maxPrice: 1.083542,
+      minPrice: 1.080534,
       isBase: true,
     },
     {
       source: "Pyth Onchain Ethereum L1",
-      avgPrice: 1852.5,
-      maxPrice: 1860.0,
-      minPrice: 1840.0,
-      avgDeviationAbs: 7.5,
-      avgDeviationPerc: 0.41,
+      avgPrice: 1.082325,
+      maxPrice: 1.083847,
+      minPrice: 1.080847,
+      avgDeviationAbs: 0.000313,
+      avgDeviationPerc: 0.0289,
     },
     {
       source: "ExchangeRate API",
-      avgPrice: 1848.2,
-      maxPrice: 1858.0,
-      minPrice: 1838.5,
-      avgDeviationAbs: 3.2,
-      avgDeviationPerc: 0.17,
+      avgPrice: 1.081834,
+      maxPrice: 1.083312,
+      minPrice: 1.080312,
+      avgDeviationAbs: -0.000178,
+      avgDeviationPerc: -0.0164,
     },
   ];
 
@@ -131,10 +131,10 @@ export default function DeviationPage() {
 
         <PriceChart
           assetPair={selectedAssetPair}
-          currentPrice={1850.75}
+          currentPrice={1.082534}
           change24h={{
-            value: 45.12,
-            percentage: 2.5,
+            value: 0.001534,
+            percentage: 0.142,
           }}
         />
 

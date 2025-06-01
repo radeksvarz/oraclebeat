@@ -1,4 +1,5 @@
 import { FC } from "react";
+import FormattedPrice from "./FormattedPrice";
 
 interface PriceData {
   source: string;
@@ -68,7 +69,7 @@ const PriceComparisonMatrix: FC<PriceComparisonMatrixProps> = ({ assetPair, last
                   {data.isBase && " (Base)"}
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-base-content/70 table-col-price">
-                  ${data.price.toFixed(2)}
+                  <FormattedPrice price={data.price} />
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm table-col-dev-abs">
                   {data.isBase ? (
@@ -76,7 +77,7 @@ const PriceComparisonMatrix: FC<PriceComparisonMatrixProps> = ({ assetPair, last
                   ) : (
                     <span className={data.deviationAbs && data.deviationAbs > 0 ? "text-success" : "text-error"}>
                       {data.deviationAbs
-                        ? (data.deviationAbs > 0 ? "+" : "") + "$" + Math.abs(data.deviationAbs).toFixed(2)
+                        ? (data.deviationAbs > 0 ? "+" : "") + "$" + Math.abs(data.deviationAbs).toFixed(6)
                         : "-"}
                     </span>
                   )}
@@ -87,7 +88,7 @@ const PriceComparisonMatrix: FC<PriceComparisonMatrixProps> = ({ assetPair, last
                   ) : (
                     <span className={data.deviationPerc && data.deviationPerc > 0 ? "text-success" : "text-error"}>
                       {data.deviationPerc
-                        ? (data.deviationPerc > 0 ? "+" : "") + data.deviationPerc.toFixed(2) + "%"
+                        ? (data.deviationPerc > 0 ? "+" : "") + data.deviationPerc.toFixed(4) + "%"
                         : "-"}
                     </span>
                   )}
