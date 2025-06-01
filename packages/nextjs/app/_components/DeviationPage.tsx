@@ -10,6 +10,12 @@ import { usePythPrice } from "~~/hooks/oracle-beat/usePythPrice";
 // EUR/USD price feed ID from Pyth Network
 const EURUSD_PRICE_ID = "0xa995d00bb36a63cef7fd2c287dc105fc8f3d93779f062f09551b0af3e81ec30b";
 
+const calculateDeviations = (basePrice: number, price: number) => {
+  const deviationAbs = price - basePrice;
+  const deviationPerc = (deviationAbs / basePrice) * 100;
+  return { deviationAbs, deviationPerc };
+};
+
 export default function DeviationPage() {
   const [selectedAssetPair, setSelectedAssetPair] = useState("EUR/USD");
   const [selectedDataSources, setSelectedDataSources] = useState<string[]>(["sourceA", "sourceB", "sourceC"]);
@@ -50,14 +56,12 @@ export default function DeviationPage() {
     {
       source: "Pyth Onchain Ethereum L1",
       price: 1.082847,
-      deviationAbs: 0.000313,
-      deviationPerc: 0.0289,
+      ...(pythPrice?.price ? calculateDeviations(pythPrice.price, 1.082847) : { deviationAbs: 0, deviationPerc: 0 }),
     },
     {
       source: "ExchangeRate API",
       price: 1.082216,
-      deviationAbs: -0.000318,
-      deviationPerc: -0.0294,
+      ...(pythPrice?.price ? calculateDeviations(pythPrice.price, 1.082216) : { deviationAbs: 0, deviationPerc: 0 }),
     },
   ];
 
