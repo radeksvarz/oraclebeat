@@ -1,6 +1,8 @@
 "use client";
 
 import { type FC, useEffect, useState } from "react";
+import { useAccount } from "wagmi";
+import { notification } from "~~/utils/scaffold-eth";
 
 interface DeviationModalProps {
   isOpen: boolean;
@@ -19,11 +21,57 @@ interface DeviationModalProps {
 const DeviationModal: FC<DeviationModalProps> = ({ isOpen, onClose, data }) => {
   const [comment, setComment] = useState("");
   const [isValid, setIsValid] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const { address } = useAccount();
 
   useEffect(() => {
     const words = comment.trim().split(/\s+/).filter(Boolean);
     setIsValid(words.length >= 3);
   }, [comment]);
+
+  const handleSubmit = async () => {
+    if (!address) {
+      notification.error("Please connect your wallet first");
+      return;
+    }
+
+    setIsSubmitting(true);
+    try {
+      const response = await fetch("https://merits-staging.blockscout.com/partner/api/v1/distribute", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: "PE5GNPK911JUNTI65357CHGRGL7KIPPA",
+        },
+        body: JSON.stringify({
+          id: "oraclebeat.ethprague",
+          description: `Deviation Hunter Report: ${data.assetPair} - ${data.deviation.percentage.toFixed(4)}% deviation`,
+          distributions: [
+            {
+              address: address,
+              amount: "9.00",
+            },
+          ],
+          create_missing_accounts: true,
+          expected_total: "9.00",
+        }),
+      });
+
+      const responseData = await response.json();
+
+      if (!response.ok) {
+        throw new Error(responseData.message || "Failed to distribute merits");
+      }
+
+      notification.success("Merits distributed successfully!");
+      onClose();
+    } catch (error) {
+      console.error("Error distributing merits:", error);
+      notification.error("Failed to distribute merits. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   if (!isOpen) return null;
 
@@ -108,18 +156,22 @@ const DeviationModal: FC<DeviationModalProps> = ({ isOpen, onClose, data }) => {
         <div className="bg-slate-100 px-6 py-4 sm:px-8 sm:py-5 border-t border-slate-200 flex flex-col sm:flex-row-reverse sm:items-center gap-3">
           <button
             className="w-full sm:w-auto flex items-center justify-center gap-2 rounded-lg h-11 px-5 bg-blue-600 hover:bg-blue-700 text-slate-50 text-sm font-semibold leading-normal tracking-wide transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:ring-offset-slate-100 disabled:opacity-50 disabled:cursor-not-allowed"
-            disabled={!isValid}
-            onClick={() => {
-              // Handle submission
-              console.log("Submitting deviation report with comment:", comment);
-              onClose();
-            }}
+            disabled={!isValid || isSubmitting || !address}
+            onClick={handleSubmit}
           >
-            Confirm & Earn Merits
+            {isSubmitting ? (
+              <>
+                <span className="material-icons animate-spin">refresh</span>
+                Processing...
+              </>
+            ) : (
+              "Confirm & Earn Merits"
+            )}
           </button>
           <button
             className="w-full sm:w-auto rounded-lg h-11 px-5 bg-slate-200 hover:bg-slate-300 text-slate-700 text-sm font-medium leading-normal transition-colors focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-100"
             onClick={onClose}
+            disabled={isSubmitting}
           >
             Cancel
           </button>
