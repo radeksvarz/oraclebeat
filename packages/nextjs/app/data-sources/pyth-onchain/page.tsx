@@ -23,6 +23,7 @@ interface UserContribution {
   avatar: string;
   timeAgo: string;
   comment: string;
+  merits: number;
 }
 
 const assetPairs: AssetPair[] = [
@@ -45,6 +46,7 @@ const userContributions: UserContribution[] = [
       "https://lh3.googleusercontent.com/aida-public/AB6AXuDOX1e2APSOd9_5v941NY-JwCz_DzEtBCvo-PMOte5EO1tvcr-0wxHEzSlzcfMCzepd0vbyk3X1CbCb6zBK6pf7gy0LOysZzk2bA6gGW-WBSF3qQCrYqVbGapRbTb-EvTvwvhNC270PvyxUC-yuCb8CL3QR8HgXB-LYPyshwcCNtwtsa6KI4ppxXhoQiSHV62T-K5K8Mx6fgmT11ToLqrC5dni4xIIsT9Qx7aDGZLlgxTzSWPKWYTWD6YHaMfMI7vidO1vvo_-edKj-",
     timeAgo: "1 day ago",
     comment: "Noticed AAPL/USD on Ethereum mainnet had slightly higher latency around 2 AM UTC. Seems fine now.",
+    merits: 15,
   },
   {
     user: "OnchainAnalyst",
@@ -52,12 +54,14 @@ const userContributions: UserContribution[] = [
       "https://lh3.googleusercontent.com/aida-public/AB6AXuAL_MF1YnSyewxWcAADaDacFerTE66BxoVgUBnCdxBX6EayD8KyrRf5n_iEvRd98fZC7z01mS1TkkEiwkxIHMemPrHKBxpuxKxb9N_ch7k6VXay2jOq-HrIEVlfeM-iyzwBpxKwKHIKUW7w1WLZQo_C0YCe9-X57HWLoDPbE9f4kk_LFSjWQn8VM3w9OEs6xcYiBgsc3MiW9Nq1KTaZejomZXUAPmGVCmMN3C7qfHgZgApsF2JkyCgzy0K6Ebu45Ga8Ga-kancadfSW",
     timeAgo: "3 days ago",
     comment: "The EUR/USD feed is incredibly fast and accurate. Great work by the Pyth team!",
+    merits: 10,
   },
   {
     user: "CryptoWatcher",
     avatar: "https://lh3.googleusercontent.com/a/ACg8ocJ_T28sX8vE0gZ3Q9U8R7oW6rC5sFvQ1Y8nZ5Xw6Jg=s96-c",
     timeAgo: "5 days ago",
     comment: "Monitoring BTC/USD closely. Pyth's on-chain data has been consistent.",
+    merits: 8,
   },
 ];
 
@@ -281,10 +285,16 @@ const PythOnchainPage: FC = () => {
                     className="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 shrink-0 border border-slate-200"
                     style={{ backgroundImage: `url("${contribution.avatar}")` }}
                   />
-                  <div>
-                    <div className="flex items-center gap-2 mb-0.5">
-                      <p className="text-slate-800 text-sm font-semibold">{contribution.user}</p>
-                      <p className="text-slate-400 text-xs">{contribution.timeAgo}</p>
+                  <div className="flex-grow">
+                    <div className="flex items-center justify-between mb-0.5">
+                      <div className="flex items-center gap-2">
+                        <p className="text-slate-800 text-sm font-semibold">{contribution.user}</p>
+                        <p className="text-slate-400 text-xs">{contribution.timeAgo}</p>
+                      </div>
+                      <div className="flex items-center text-gray-500 text-sm">
+                        <span className="material-icons merit-icon text-yellow-500 mr-1 text-base">star</span>
+                        {contribution.merits}
+                      </div>
                     </div>
                     <p className="text-slate-600 text-sm">{contribution.comment}</p>
                   </div>
